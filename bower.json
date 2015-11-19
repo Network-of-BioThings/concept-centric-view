@@ -19,6 +19,9 @@
     "d3": "~3.5.9",
     "nvd3": "~1.8.1",
     "angularjs-nvd3-directives": "~0.0.7",
-    "dang-jssor": "~0.0.3"
+    "dang-jssor": "~0.0.3",
+    "d3-cloud": "~1.2.1",
+    "angular-d3-directives": "~0.0.3",
+    "angular-d3": "robinboehm/angular-d3-directives"
   }
 }
