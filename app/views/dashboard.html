@@ -21,24 +21,30 @@
                 <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
             </div>
 
-
         </div>
+
         <div class="col-md-4 no-float">
 
+            <div id="treeContainer"></div>
 
+            <div id="treeContainerFinal" ccv-tree="true" ng-if="dataContainer.term != null" style="border:2px solid red; height:50%"></div>
 
         </div>
+
         <div class="col-md-4 no-float">
 
             <div ng-if="dataContainer.synonyms.length > 0">
+
                 <wordcloud
                         words="dataContainer.synonyms"
                         on-click="onClickWord(element)"
                         on-hover="onHoverWord(element)">
                 </wordcloud>
+
             </div>
 
             <div>
+
                 <nvd3-line-chart
                         data="exampleData"
                         showXAxis="true"
@@ -46,8 +52,8 @@
                         tooltips="true"
                         interactive="true">
                 </nvd3-line-chart>
-            </div>
 
+            </div>
 
         </div>
     </div>

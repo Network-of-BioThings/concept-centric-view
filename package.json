@@ -1,7 +1,7 @@
 {
-  "name": "bd2k-hackathlon-bmccv",
+  "name": "bd2k-hackathlon-ccv",
   "version": "1.0.0",
-  "description": "Biomedical Concept-Centric View App",
+  "description": "Concept-Centric View App",
   "main": "app/scripts/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

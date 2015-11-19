@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('angularJsBmccvApplication')
+    .module('angularJsCcvApplication')
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */
