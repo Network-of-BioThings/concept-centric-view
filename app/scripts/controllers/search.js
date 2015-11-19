@@ -6,7 +6,7 @@ var SearchController = function($rootScope, $scope, $routeParams, $location, Con
 
   $scope.search = function() {
 
-    console.log($scope.query);
+    //console.log($scope.query);
     $window.location.href = '#/dashboard/' + $scope.query;
   }
 
@@ -14,4 +14,3 @@ var SearchController = function($rootScope, $scope, $routeParams, $location, Con
 
 DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "$window"];
 angularApp.controller('SearchController', SearchController);
-

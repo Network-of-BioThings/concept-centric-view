@@ -2,22 +2,24 @@
 
 var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
 
+  var query = $routeParams["query"];
+
+  if (query) {
+    // Using form service to load list of existing elements to embed into new form
+    ConceptService.concept("melanoma").then(function (response) {
+      $scope.conceptInfo = response;
+      $scope.fillUpSlider();
+      $scope.fillUpWordCloud();
+      $scope.doTheGraph();
+      console.log(response);
+    });
+  }
+
   $scope.dataContainer = {
     definitions: [],
     synonyms: [],
     term: null
   };
-
-  // Using form service to load list of existing elements to embed into new form
-  ConceptService.concept("melanoma").then(function (response) {
-    $scope.conceptInfo = response;
-    $scope.fillUpSlider();
-    $scope.fillUpWordCloud();
-    $scope.doTheGraph();
-
-    console.log(response);
-  });
-
 
   $scope.exampleData = [
     {
