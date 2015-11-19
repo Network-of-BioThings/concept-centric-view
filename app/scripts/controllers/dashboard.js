@@ -2,12 +2,15 @@
 
 var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
 
-  // Using form service to load list of existing elements to embed into new form
-  ConceptService.concept("melanoma").then(function(response) {
-    $scope.conceptInfo = response;
-    console.log(response);
-  });
+  $scope.dataContainer = {
+    definitions: []
+  };
 
+  // Using form service to load list of existing elements to embed into new form
+  ConceptService.concept("melanoma").then(function (response) {
+    $scope.conceptInfo = response;
+    $scope.fillUpSlider();
+  });
 
 
   $scope.exampleData = [
@@ -17,17 +20,14 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     }];
 
 
-//----------------------------------------------------------------------------
-
-  $scope.basicUsageOptions = {
-    $AutoPlay: true
-  };
+//------ Configure JSSOR slider for definitions  ----------------------------------------------------------------------
 
   $scope.sliderWithArrowOptions = {
     name: "sliderWithArrow",
-    $DragOrientation: 3,                            //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
-    $SlideDuration: 800,                            //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
-    $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+    $AutoPlay: true,
+    $DragOrientation: 3,                          //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+    $SlideDuration: 800,                          //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+    $ArrowNavigatorOptions: {                     //[Optional] Options to specify and enable arrow navigator or not
       $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
       $ChanceToShow: 2,                           //[Required] 0 Never, 1 Mouse Over, 2 Always
       $AutoCenter: 2,                             //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
@@ -35,37 +35,23 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     }
   };
 
-  $scope.categoryIndex = 0;
+  $scope.fillUpSlider = function () {
+    console.log("CREATE SLIDER");
+    $scope.dataContainer.definitions = $scope.conceptInfo.definitions;
+  }
 
-  $scope.getCategory = function () {
-    return $scope.categories[$scope.categoryIndex];
-  };
-
-  $scope.slideChanged = function (data) {
-    $scope.categoryIndex = data.slideIndex;
-  };
-
-  $scope.categories = [
-    "Basic",
-    "Advance",
-    "Grandeur"
-  ];
-
-  $scope.images = ["001.jpg", "002.jpg", "003.jpg"];
-
-  //----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 
   $scope.words =
-    ["Melanoma", "Hallo","Test","Lorem","Ipsum","Lorem","ipsum","dolor","sit","amet,","consetetur","sadipscing","elitr","Melanoma", "sed","diam","nonumy","eirmod","tempor","invidunt","ut","labore","et","dolore","magna","aliquyam","erat,","sed","diam", "Melanoma"];
+    ["Melanoma", "Hallo", "Test", "Lorem", "Ipsum", "Lorem", "ipsum", "dolor", "sit", "amet,", "consetetur", "sadipscing", "elitr", "Melanoma", "sed", "diam", "nonumy", "eirmod", "tempor", "invidunt", "ut", "labore", "et", "dolore", "magna", "aliquyam", "erat,", "sed", "diam", "Melanoma"];
 
-  $scope.myOnClickFunction = function(element){
-    console.log("click",element);
+  $scope.myOnClickFunction = function (element) {
+    console.log("click", element);
   }
 
-  $scope.myOnHoverFunction = function(element){
-    console.log("hover",element);
+  $scope.myOnHoverFunction = function (element) {
+    console.log("hover", element);
   }
-
 
 
 };
