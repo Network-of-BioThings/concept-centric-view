@@ -34,12 +34,13 @@
         </div>
         <div class="col-md-4 no-float">
 
-
-            <wordcloud
-                    words="words"
-                    on-click="myOnClickFunction(element)"
-                    on-hover="myOnHoverFunction(element)">
-            </wordcloud>
+            <div ng-if="dataContainer.synonyms.length > 0">
+                <wordcloud
+                        words="dataContainer.synonyms"
+                        on-click="myOnClickFunction(element)"
+                        on-hover="myOnHoverFunction(element)">
+                </wordcloud>
+            </div>
 
 
         </div>

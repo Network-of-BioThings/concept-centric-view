@@ -3,13 +3,15 @@
 var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
 
   $scope.dataContainer = {
-    definitions: []
+    definitions: [],
+    synonyms:[]
   };
 
   // Using form service to load list of existing elements to embed into new form
   ConceptService.concept("melanoma").then(function (response) {
     $scope.conceptInfo = response;
     $scope.fillUpSlider();
+    $scope.fillUpWordCloud();
   });
 
 
@@ -43,10 +45,19 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $scope.dataContainer.definitions = $scope.conceptInfo.definitions;
   }
 
-//----------------------------------------------------------------------------
+//------ Configure 3D JS WordCloud for synonyms ----------------------------------------------------------------------
 
-  $scope.words =
-    ["Melanoma", "Hallo", "Test", "Lorem", "Ipsum", "Lorem", "ipsum", "dolor", "sit", "amet,", "consetetur", "sadipscing", "elitr", "Melanoma", "sed", "diam", "nonumy", "eirmod", "tempor", "invidunt", "ut", "labore", "et", "dolore", "magna", "aliquyam", "erat,", "sed", "diam", "Melanoma"];
+  $scope.fillUpWordCloud = function () {
+    var syns= $scope.conceptInfo.synonyms;
+    console.log("CREATE WORD CLOUD");
+    console.log(syns);
+    var synonyms = [];
+    for(var i in syns) {
+      var s = syns[i].synonym;
+      synonyms.push(s);
+    }
+    $scope.dataContainer.synonyms = synonyms;
+  }
 
   $scope.myOnClickFunction = function (element) {
     console.log("click", element);
