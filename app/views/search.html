@@ -37,10 +37,11 @@
 
     <div ng-controller="SearchController">
       <h4>Give me a term</h4>
-      <input ng-model="query"/>
-      <button type="button" class="btn btn-primary" ng-click="search()">
-        Search
-      </button>
+      <div class="form-group">
+        <input class="form-control" required ng-model="query"/><br />
+        <button type="button" class="btn btn-primary" ng-click="search()"><span>Search</span>
+        </button>
+      </div>
     </div>
   </div>
   <!--<p>-->
