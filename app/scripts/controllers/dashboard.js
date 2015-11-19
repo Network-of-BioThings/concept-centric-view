@@ -1,6 +1,14 @@
 'use strict';
 
-var DashboardController = function ($rootScope, $scope, $routeParams, $location) {
+var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
+
+  // Using form service to load list of existing elements to embed into new form
+  ConceptService.concept("melanoma").then(function(response) {
+    $scope.conceptInfo = response;
+    console.log(response);
+  });
+
+
 
   $scope.exampleData = [
     {
@@ -62,5 +70,5 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location)
 
 };
 
-DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location"];
+DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService"];
 angularApp.controller('DashboardController', DashboardController);
