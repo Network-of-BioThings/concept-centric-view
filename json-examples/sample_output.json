@@ -1,0 +1,97 @@
+{
+  "term": "melanoma",
+  "count" : 4,
+  "ids" : [
+    {
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/DOID_1909",
+      "ui": "http://bioportal.bioontology.org/ontologies/DOID?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_1909"
+
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/MEDDRA/10053571",
+      "ui": "http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FMEDDRA%2F10053571"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/HP_0002861",
+      "ui": "http://bioportal.bioontology.org/ontologies/HP?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FHP_0002861"
+    }
+  ],
+  "ontologies": [
+    {
+      "ontology": "http://data.bioontology.org/ontologies/NCIT",
+      "ontologyAcronym": "NCIT",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT"
+    },
+    {
+      "ontology": "http://data.bioontology.org/ontologies/NCIT",
+      "ontologyAcronym": "NCIT",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C3224"
+    },
+    {
+      "ontology": "http://data.bioontology.org/ontologies/NCIT",
+      "ontologyAcronym": "NCIT",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C3224"
+    }
+  ],
+  "definitions": [
+    "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
+    "The presence of a melanoma, a malignant cancer originating from pigment producing melanocytes. Melanoma can originate from the skin or the pigmented layers of the eye (the uvea).",
+    "A malignant neoplasm derived from cells that are capable of forming melanin, which may occur in the skin of any part of the body, in the eye, or, rarely, in the mucous membranes of the genitalia, anus, oral cavity, or other sites. It occurs mostly in adults and may originate de novo or from a pigmented nevus or malignant lentigo. Melanomas frequently metastasize widely, and the regional lymph nodes, liver, lungs, and brain are likely to be involved. The incidence of malignant skin melanomas is rising rapidly in all parts of the world. (Stedman, 25th ed; from Rook et al., Textbook of Dermatology, 4th ed, p2445)"
+  ],
+  "synonyms": [
+    {
+      "synonym": "malignant melanoma",
+      "count": 4
+    },
+    {
+      "synonym": "melanosarcoma",
+      "count": 1
+    },
+    {
+      "synonym": "naevocarcinoma",
+      "count": 1
+    }
+  ],
+  "parents": [
+    {
+      "prefLabel": "",
+      "count": 2
+    }
+  ],
+  "children": [
+    {
+      "prefLabel": "",
+      "count": 2
+    },
+    {
+      "prefLabel": "",
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
+      "count": 2
+    },
+    {
+      "prefLabel": "",
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
+      "count": 2
+    }
+  ],
+  "siblings": [
+    {
+      "prefLabel": "",
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
+      "count": 2
+    },
+    {
+      "prefLabel": "",
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
+      "count": 2
+    }
+  ]
+}
