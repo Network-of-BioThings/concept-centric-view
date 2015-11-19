@@ -1,0 +1,44 @@
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+.container,
+#angular-views-entry {
+  height: 100%;
+}
+.container {
+  display: table;
+  width: 100%;
+  margin-left: 0px;
+  margin-top: -50px;
+  padding-top: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  box-sizing: border-box;
+}
+header {
+  background: #f0f0f0;
+  height: 50px;
+}
+.row {
+  height: 100%;
+  display: table-row;
+}
+.col-md-4.no-float {
+  float: none;
+  /* thanks baxabbit */
+}
+.col-md-4 {
+  display: table-cell;
+  background: #eeeeee;
+  border: 1px solid #aaaaaa;
+  width: 33%;
+  padding: 0px;
+}
