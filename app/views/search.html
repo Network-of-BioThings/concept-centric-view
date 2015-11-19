@@ -31,21 +31,26 @@
     <h1>Search for it!</h1>
 
     <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure retrieving useful information
+      <!--<img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>-->
+      Always a pleasure aggregating information for you
     </p>
 
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>Test</p>
-    <!--<p>-->
-    <!--With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>-->
-    <!--</p>-->
+    <div ng-controller="SearchController">
+      <h4>Give me a term</h4>
+      <div class="form-group">
+        <input class="form-control" required ng-model="query"/><br />
+        <button type="button" class="btn btn-primary" ng-click="search()"><span>Search</span>
+        </button>
+      </div>
+    </div>
   </div>
+  <!--<p>-->
+  <!--With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>-->
+  <!--</p>-->
+</div>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4">
+<div class="row">
+  <div class="col-sm-6 col-md-4">
     <!--<div class="thumbnail">-->
     <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="title">-->
     <!--<div class="caption">-->
