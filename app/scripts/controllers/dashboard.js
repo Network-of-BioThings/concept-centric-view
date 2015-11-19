@@ -50,7 +50,6 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   $scope.fillUpWordCloud = function () {
     var syns= $scope.conceptInfo.synonyms;
     console.log("CREATE WORD CLOUD");
-    console.log(syns);
     var synonyms = [];
     for(var i in syns) {
       var s = syns[i].synonym;
@@ -59,13 +58,15 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $scope.dataContainer.synonyms = synonyms;
   }
 
-  $scope.myOnClickFunction = function (element) {
+  $scope.onClickWord = function (element) {
     console.log("click", element);
   }
 
-  $scope.myOnHoverFunction = function (element) {
+  $scope.onHoverWord = function (element) {
     console.log("hover", element);
   }
+
+  // --------------------------------------------------------------------------------------------------------
 
 
 };

@@ -24,22 +24,28 @@
 
         </div>
         <div class="col-md-4 no-float">
-            <nvd3-line-chart
-                    data="exampleData"
-                    showXAxis="true"
-                    showYAxis="true"
-                    tooltips="true"
-                    interactive="true">
-            </nvd3-line-chart>
+
+
+
         </div>
         <div class="col-md-4 no-float">
 
             <div ng-if="dataContainer.synonyms.length > 0">
                 <wordcloud
                         words="dataContainer.synonyms"
-                        on-click="myOnClickFunction(element)"
-                        on-hover="myOnHoverFunction(element)">
+                        on-click="onClickWord(element)"
+                        on-hover="onHoverWord(element)">
                 </wordcloud>
+            </div>
+
+            <div>
+                <nvd3-line-chart
+                        data="exampleData"
+                        showXAxis="true"
+                        showYAxis="true"
+                        tooltips="true"
+                        interactive="true">
+                </nvd3-line-chart>
             </div>
 
 
