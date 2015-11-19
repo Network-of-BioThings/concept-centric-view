@@ -1,7 +1,6 @@
 {
   "term": "melanoma",
-  "count" : 4,
-  "ids" : [
+  "ids": [
     {
       "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
       "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058"
@@ -9,7 +8,6 @@
     {
       "id": "http://purl.obolibrary.org/obo/DOID_1909",
       "ui": "http://bioportal.bioontology.org/ontologies/DOID?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_1909"
-
     },
     {
       "id": "http://purl.bioontology.org/ontology/MEDDRA/10053571",
@@ -22,19 +20,19 @@
   ],
   "ontologies": [
     {
-      "ontology": "http://data.bioontology.org/ontologies/NCIT",
-      "ontologyAcronym": "NCIT",
+      "id": "http://data.bioontology.org/ontologies/NCIT",
+      "acronym": "NCIT",
       "ui": "http://bioportal.bioontology.org/ontologies/NCIT"
     },
     {
-      "ontology": "http://data.bioontology.org/ontologies/NCIT",
-      "ontologyAcronym": "NCIT",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C3224"
+      "id": "http://data.bioontology.org/ontologies/DOID",
+      "acronym": "DOID",
+      "ui": "http://bioportal.bioontology.org/ontologies/DOID"
     },
     {
-      "ontology": "http://data.bioontology.org/ontologies/NCIT",
-      "ontologyAcronym": "NCIT",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C3224"
+      "id": "http://data.bioontology.org/ontologies/MEDDRA",
+      "acronym": "MEDDRA",
+      "ui": "http://bioportal.bioontology.org/ontologies/MEDDRA"
     }
   ],
   "definitions": [
@@ -58,40 +56,62 @@
   ],
   "parents": [
     {
-      "prefLabel": "",
+      "term": "Neoplasm by histology",
       "count": 2
     }
   ],
   "children": [
     {
-      "prefLabel": "",
-      "count": 2
+      "term": "Extracutaneous melanoma",
+      "count": 17
     },
     {
-      "prefLabel": "",
-      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
-      "count": 2
+      "term": "Cutaneous melanoma",
+      "count": 12
     },
     {
-      "prefLabel": "",
-      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
-      "count": 2
+      "term": "Breast melanoma",
+      "count": 4
     }
   ],
   "siblings": [
     {
-      "prefLabel": "",
-      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
-      "count": 2
+      "term": "Sibling 1",
+      "count": 11
     },
     {
-      "prefLabel": "",
-      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7058",
-      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C7058",
-      "count": 2
+      "term": "Sibling 2",
+      "count": 3
     }
-  ]
+  ],
+  "analytics": {
+    "2014": {
+      "1": 41,
+      "2": 2,
+      "3": 3,
+      "4": 2,
+      "5": 9,
+      "6": 3,
+      "7": 0,
+      "8": 15,
+      "9": 5,
+      "10": 2,
+      "11": 8,
+      "12": 6
+    },
+    "2015": {
+      "1": 4,
+      "2": 6,
+      "3": 12,
+      "4": 2,
+      "5": 9,
+      "6": 3,
+      "7": 0,
+      "8": 15,
+      "9": 5,
+      "10": 2,
+      "11": 8,
+      "12" : 0
+    }
+  }
 }
