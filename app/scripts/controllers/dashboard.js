@@ -1,43 +1,37 @@
 'use strict';
 
-var DashboardController = function($rootScope, $scope, $routeParams, $location, ConceptService, WikiService) {
+var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
 
   var query = $routeParams["query"];
   $scope.q = query;
 
   if (query) {
-    ConceptService.getBaseData(query).then(function(response) {
+    ConceptService.getBaseData(query).then(function (response) {
       $scope.fillUpSlider(response);
       $scope.fillUpWordCloud(response);
       //console.log("RESPONSE is:");
       //console.log(response);
     });
 
-    ConceptService.getFamily(query).then(function(response) {
+    ConceptService.getFamily(query).then(function (response) {
       $scope.doTheGraph(response);
       //console.log("RESPONSE is:");
       //console.log(response);
     });
 
-    ConceptService.getImages(query).then(function(response) {
+    ConceptService.getImages(query).then(function (response) {
       $scope.doTheImages(response);
       //console.log("RESPONSE is:");
       //console.log(response);
 
     });
 
-    ConceptService.getAnalytics(query).then(function(response) {
+    ConceptService.getAnalytics(query).then(function (response) {
       $scope.doTheAnalytics(response);
       //console.log("RESPONSE is:");
       //console.log(response);
 
     });
-
-    // Using form service to load list of existing elements to embed into new form
-    WikiService.searchImages(query);//
-    // .then(function (response) {
-    //  console.log('Wiki' + response);
-    //});
   }
 
 //------ Analytics data  ----------------------------------------------------------------------
@@ -70,11 +64,11 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
     }
   };
 
-  $scope.fillUpSlider = function(response) {
+  $scope.fillUpSlider = function (response) {
     $scope.dataContainer.definitions = response.definitions;
   }
 
-  $scope.doTheImages = function(response) {
+  $scope.doTheImages = function (response) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
     var slides = $scope.slides = [];
@@ -86,7 +80,7 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
     }
   }
 
-  $scope.doTheAnalytics = function(response) {
+  $scope.doTheAnalytics = function (response) {
     $scope.exampleData = [
       {
         "key": "Series 1",
@@ -107,7 +101,7 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
 
 //------ Configure jqCloud for synonyms ----------------------------------------------------------------------
 
-  $scope.fillUpWordCloud = function(response) {
+  $scope.fillUpWordCloud = function (response) {
     var syns = response.synonyms;
 
     console.log("CREATE WORD CLOUD");
@@ -126,7 +120,7 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
 
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
-  $scope.doTheGraph = function(response) {
+  $scope.doTheGraph = function (response) {
     $scope.dataContainer.parents = response.parents;
     $scope.dataContainer.children = response.children;
     $scope.dataContainer.siblings = response.siblings;
@@ -135,5 +129,5 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
   }
 };
 
-DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "WikiService"];
+DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService"];
 angularApp.controller('DashboardController', DashboardController);
