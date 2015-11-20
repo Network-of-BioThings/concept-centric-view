@@ -27,12 +27,25 @@
       <div class="thumbnail">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
-        <div class="caption">
+        <div class="caption" style="">
           <h4>What is <span style="font-style: italic; font-weight: bold;">{{q}}</span>?</h4>
         </div>
 
+        <!--&lt;!&ndash;<div class="caption">&ndash;&gt;-->
+        <!--<uib-carousel interval="myIntervalDefs" no-wrap="noWrapSlides">-->
+          <!--<uib-slide ng-repeat="slide in slidesDefs" active="slide.active">-->
+            <!--<img ng-src="{{slide.image}}" style="margin:auto; height:230px;">-->
+            <!--{{slide.text}}-->
+            <!--<div class="carousel-caption" style="border-width: 1px; border-style:solid; border-color: #000">-->
+              <!--&lt;!&ndash;<h4>Image {{$index+1}}</h4>&ndash;&gt;-->
+              <!--<p style="font-size: 0.8em; font-style: italic; color: black; text-shadow: none">{{slide.text}}</p>-->
+            <!--</div>-->
+          <!--</uib-slide>-->
+        <!--</uib-carousel>-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
         <div class="slides-container"
-             style="font-style: italic; position: relative; top: 0px; left: 0px; width:280px;height: 180px;margin-left:auto;margin-right:auto; /*border-width: 1px; border-style: solid;*/"
+             style="font-style: italic; position: relative; top: 0px; left: 0px; width:270px;height: 180px;margin-left:auto;margin-right:auto; /*border-width: 1px; border-style: solid;*/"
              ng-if="dataContainer.definitions.length > 0">
           <div u="slides"
                style="cursor: move; position: absolute; overflow: hidden; left: 10px; top: 0px; width: 260px; height: 180px;">
@@ -44,12 +57,12 @@
             </div>
           </div>
           <!-- Bullet Navigator -->
-          <div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">
-            <div data-u="prototype" style="width:12px;height:12px;"></div>
-          </div>
+          <!--<div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">-->
+            <!--<div data-u="prototype" style="width:12px;height:12px;"></div>-->
+          <!--</div>-->
           <!-- Arrow Navigator -->
-          <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: 8px;"></span>
-          <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
+          <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: -20px"></span>
+          <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: -20px"></span>
         </div>
 
       </div>
@@ -77,10 +90,10 @@
       <div class="thumbnail">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
-        <div class="caption">
+        <!--<div class="caption">-->
           <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in slides" active="slide.active">
-              <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:220px;">
+              <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:240px;">
 
               <div class="carousel-caption">
                 <!--<h4>Image {{$index+1}}</h4>-->
@@ -88,7 +101,7 @@
               </div>
             </uib-slide>
           </uib-carousel>
-        </div>
+        <!--</div>-->
       </div>
     </div>
   </div>

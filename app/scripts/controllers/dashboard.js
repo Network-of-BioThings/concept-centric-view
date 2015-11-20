@@ -66,6 +66,17 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
   $scope.fillUpSlider = function (response) {
     $scope.dataContainer.definitions = response.definitions;
+    $scope.myIntervalDefs = 7000;
+    $scope.noWrapSlidesDefs = false;
+    var slidesDefs = $scope.slidesDefs = [];
+    for (var i = 0; i < response.definitions.length; i++) {
+      slidesDefs.push({
+        //image: response.images[i],
+        text: response.definitions[i].definition
+      });
+    }
+
+
   }
 
   $scope.doTheImages = function (response) {
