@@ -110,13 +110,12 @@
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <!--<div class="caption">-->
-        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-          <uib-slide ng-repeat="slide in slides" active="slide.active">
-            <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:240px;">
-
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides" >
+          <uib-slide ng-repeat="image in $root.dataContainer.images" >
+            <img ng-src="{{image.url}}" height="220" style="margin:auto; height:240px;">
             <div class="carousel-caption">
               <!--<h4>Image {{$index+1}}</h4>-->
-              <p>{{slide.text}}</p>
+              <p>{{image.text}}</p>
             </div>
           </uib-slide>
         </uib-carousel>

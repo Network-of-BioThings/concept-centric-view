@@ -12,6 +12,8 @@ var angularRun = function ($rootScope) {
       synonyms: [],
       words: [],
       analytics: {},
+      images: [],
+      imagesActive: false,
       term: null
     };
   };

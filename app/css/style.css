@@ -141,6 +141,9 @@ h3 {
   fill: #550000;
   stroke-width: 0px;
 }
+.thumbnail .carousel-indicators li {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  less dependencies when defined in the bower.json of your dependencies

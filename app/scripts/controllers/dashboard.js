@@ -82,13 +82,15 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   $scope.doTheImages = function (response) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
-    var slides = $scope.slides = [];
+    var slides = [];
     for (var i = 0; i < response.images.length; i++) {
       slides.push({
-        image: response.images[i],
-        text: ""
+        url: response.images[i].url,
+        text: response.images[i].source
       });
     }
+    $rootScope.dataContainer.images = slides;
+    $rootScope.dataContainer.imagesActive = true;
   }
 
   $scope.doTheUris = function (response) {
