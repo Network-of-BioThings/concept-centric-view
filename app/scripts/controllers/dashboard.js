@@ -107,7 +107,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
     $scope.idsData = [
       {
-        "key": "Series 1",
+        "key": "Relevant URIs",
         "values": idsCount
       }];
   }
