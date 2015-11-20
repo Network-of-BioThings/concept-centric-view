@@ -4,9 +4,9 @@
 /*global jQuery */
 'use strict';
 
-var angularRun = function($rootScope, $location, $timeout, $window, ConceptService, WikiService) {
+var angularRun = function ($rootScope) {
 
 };
 
-angularRun.$inject = ['$rootScope', '$location', '$timeout', '$window', 'ConceptService', 'WikiService'];
+angularRun.$inject = ['$rootScope'];
 angularApp.run(angularRun);

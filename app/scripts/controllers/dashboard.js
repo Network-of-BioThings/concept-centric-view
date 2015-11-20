@@ -2,23 +2,39 @@
 
 var DashboardController = function($rootScope, $scope, $routeParams, $location, ConceptService, WikiService) {
 
-  $scope.query = $routeParams["query"];
+  var query = $routeParams["query"];
+  $scope.q = query;
 
-  if ($scope.query) {
-    // Using form service to load list of existing elements to embed into new form
-    ConceptService.concept($scope.query).then(function(response) {
-      $scope.conceptInfo = response;
-      $scope.fillUpSlider();
-      $scope.fillUpWordCloud();
-      $scope.populateAnalytics();
-      $scope.doTheGraph();
-      $scope.setUpImagesCarousel();
-      console.log("RESPONSE is:");
-      console.log(response);
+  if (query) {
+    ConceptService.getBaseData(query).then(function(response) {
+      $scope.fillUpSlider(response);
+      $scope.fillUpWordCloud(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+    });
+
+    ConceptService.getFamily(query).then(function(response) {
+      $scope.doTheGraph(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+    });
+
+    ConceptService.getImages(query).then(function(response) {
+      $scope.doTheImages(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+
+    });
+
+    ConceptService.getAnalytics(query).then(function(response) {
+      $scope.doTheAnalytics(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+
     });
 
     // Using form service to load list of existing elements to embed into new form
-    WikiService.searchImages($scope.query);//
+    WikiService.searchImages(query);//
     // .then(function (response) {
     //  console.log('Wiki' + response);
     //});
@@ -33,7 +49,6 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
     analytics: {},
     term: null
   };
-
 
 //------ Configure JSSOR slider for definitions  ----------------------------------------------------------------------
 
@@ -55,88 +70,70 @@ var DashboardController = function($rootScope, $scope, $routeParams, $location, 
     }
   };
 
-  $scope.fillUpSlider = function() {
-    $scope.dataContainer.definitions = $scope.conceptInfo.definitions;
+  $scope.fillUpSlider = function(response) {
+    $scope.dataContainer.definitions = response.definitions;
   }
 
-//------ Configure 3D JS WordCloud for synonyms ----------------------------------------------------------------------
-
-  $scope.fillUpWordCloud_old = function() {
-    var syns = $scope.conceptInfo.synonyms;
-    console.log("CREATE WORD CLOUD");
-    var synonyms = [];
-    for (var i in syns) {
-      var s = syns[i].synonym;
-      synonyms.push(s);
+  $scope.doTheImages = function(response) {
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
+    var slides = $scope.slides = [];
+    for (var i = 0; i < response.images.length; i++) {
+      slides.push({
+        image: response.images[i],
+        text: ""
+      });
     }
-    $scope.dataContainer.synonyms = synonyms;
   }
 
-  $scope.onClickWord = function(element) {
-    console.log("click", element);
+  $scope.doTheAnalytics = function(response) {
+    $scope.exampleData = [
+      {
+        "key": "Series 1",
+        "values": [[1, response.analytics["2014"]["11"]],
+          [2, response.analytics["2014"]["12"]],
+          [3, response.analytics["2015"]["1"]],
+          [4, response.analytics["2015"]["2"]],
+          [5, response.analytics["2015"]["3"]],
+          [6, response.analytics["2015"]["4"]],
+          [7, response.analytics["2015"]["5"]],
+          [8, response.analytics["2015"]["6"]],
+          [9, response.analytics["2015"]["7"]],
+          [10, response.analytics["2015"]["8"]],
+          [11, response.analytics["2015"]["9"]],
+          [12, response.analytics["2015"]["10"]]]
+      }];
   }
 
-  $scope.onHoverWord = function(element) {
-    console.log("hover", element);
-  }
+//------ Configure jqCloud for synonyms ----------------------------------------------------------------------
 
-  //----- jqCloud
+  $scope.fillUpWordCloud = function(response) {
+    var syns = response.synonyms;
 
-  $scope.fillUpWordCloud = function() {
-    var syns = $scope.conceptInfo.synonyms;
     console.log("CREATE WORD CLOUD");
     var synonyms = [];
     for (var i in syns) {
       var s = {"text": syns[i].synonym, "weight": syns[i].count};
       synonyms.push(s);
     }
+
+    var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+    $scope.dataContainer.wordColors = colors;
+    $scope.dataContainer.wordSteps = colors.length;
     $scope.dataContainer.words = synonyms;
-  }
-
-
-  //------ Analytics
-  $scope.populateAnalytics = function() {
-    $scope.exampleData = [
-      {
-        "key": "Series 1",
-        "values": [[1, $scope.conceptInfo.analytics["2014"]["11"]],
-          [2, $scope.conceptInfo.analytics["2014"]["12"]],
-          [3, $scope.conceptInfo.analytics["2015"]["1"]],
-          [4, $scope.conceptInfo.analytics["2015"]["2"]],
-          [5, $scope.conceptInfo.analytics["2015"]["3"]],
-          [6, $scope.conceptInfo.analytics["2015"]["4"]],
-          [7, $scope.conceptInfo.analytics["2015"]["5"]],
-          [8, $scope.conceptInfo.analytics["2015"]["6"]],
-          [9, $scope.conceptInfo.analytics["2015"]["7"]],
-          [10, $scope.conceptInfo.analytics["2015"]["8"]],
-          [11, $scope.conceptInfo.analytics["2015"]["9"]],
-          [12, $scope.conceptInfo.analytics["2015"]["10"]]]
-      }];
+    $scope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
   }
 
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
-  $scope.doTheGraph = function() {
-    $scope.dataContainer.parents = $scope.conceptInfo.parents;
-    $scope.dataContainer.children = $scope.conceptInfo.children;
-    $scope.dataContainer.siblings = $scope.conceptInfo.siblings;
-    $scope.dataContainer.term = $scope.conceptInfo.term;
-  }
+  $scope.doTheGraph = function(response) {
+    $scope.dataContainer.parents = response.parents;
+    $scope.dataContainer.children = response.children;
+    $scope.dataContainer.siblings = response.siblings;
+    $scope.dataContainer.term = response.term;
 
-  // -Carousel-------------------------------------------------------------------------------------------------------
-  $scope.setUpImagesCarousel = function() {
-    $scope.myInterval = 5000;
-    $scope.noWrapSlides = false;
-    var slides = $scope.slides = [];
-    for (var i = 0; i < $scope.conceptInfo.images.length; i++) {
-      slides.push({
-        image: $scope.conceptInfo.images[i],
-        text: ""
-      });
-    }
   }
 };
-
 
 DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "WikiService"];
 angularApp.controller('DashboardController', DashboardController);

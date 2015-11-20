@@ -1,0 +1,885 @@
+{
+  "term": "stomach",
+  "ids": [
+    {
+      "id": "http://www.icn.ch/icnp#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/ICNP?p=classes&conceptid=http%3A%2F%2Fwww.icn.ch%2Ficnp%23Stomach"
+    },
+    {
+      "id": "http://purl.jp/bio/11/meo/MEO_0000482",
+      "ui": "http://bioportal.bioontology.org/ontologies/MEO?p=classes&conceptid=http%3A%2F%2Fpurl.jp%2Fbio%2F11%2Fmeo%2FMEO_0000482"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/XAO_0000128",
+      "ui": "http://bioportal.bioontology.org/ontologies/XAO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FXAO_0000128"
+    },
+    {
+      "id": "http://www.semanticweb.org/david/ontologies/2013/0/pathLex.owl#1.3.6.1.4.1.19376.1.8.2.1.803",
+      "ui": "http://bioportal.bioontology.org/ontologies/PATHLEX?p=classes&conceptid=http%3A%2F%2Fwww.semanticweb.org%2Fdavid%2Fontologies%2F2013%2F0%2FpathLex.owl%231.3.6.1.4.1.19376.1.8.2.1.803"
+    },
+    {
+      "id": "http://purl.org/obo/owlapi/fma#FMA_7148",
+      "ui": "http://bioportal.bioontology.org/ontologies/BIOMODELS?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fobo%2Fowlapi%2Ffma%23FMA_7148"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_6872",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_6872"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_9154",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_9154"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_4843",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_4843"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_3888",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_3888"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_10293",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_10293"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/OAE?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_7917",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_7917"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_2994",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_2994"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDA_5799",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDA_5799"
+    },
+    {
+      "id": "http://phenomebrowser.net/ontologies/mesh/mesh.owl#D013270",
+      "ui": "http://bioportal.bioontology.org/ontologies/RH-MESH?p=classes&conceptid=http%3A%2F%2Fphenomebrowser.net%2Fontologies%2Fmesh%2Fmesh.owl%23D013270"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/CCONT?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.org/sig/ont/fma/fma7148",
+      "ui": "http://bioportal.bioontology.org/ontologies/ROO?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fsig%2Font%2Ffma%2Ffma7148"
+    },
+    {
+      "id": "http://ontology.apa.org/apaonto/termsonlyOUT%20(5).owl#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/APAONTO?p=classes&conceptid=http%3A%2F%2Fontology.apa.org%2Fapaonto%2FtermsonlyOUT%2520%285%29.owl%23Stomach"
+    },
+    {
+      "id": "http://www.projecthalo.com/aura#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/AURA?p=classes&conceptid=http%3A%2F%2Fwww.projecthalo.com%2Faura%23Stomach"
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/MTHMST/MT010010",
+      "ui": "http://bioportal.bioontology.org/ontologies/MSTDE-FRE?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FMTHMST%2FMT010010"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/MAT_0000051",
+      "ui": "http://bioportal.bioontology.org/ontologies/MAT?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMAT_0000051"
+    },
+    {
+      "id": "http://www.semanticweb.org/ontologies/2012/11/abnormalities.owl#phenodb:1046",
+      "ui": "http://bioportal.bioontology.org/ontologies/IFAR?p=classes&conceptid=http%3A%2F%2Fwww.semanticweb.org%2Fontologies%2F2012%2F11%2Fabnormalities.owl%23phenodb%3A1046"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/OBI_BCGO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/FMA_7148",
+      "ui": "http://bioportal.bioontology.org/ontologies/FMA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FFMA_7148"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/TAO_0002121",
+      "ui": "http://bioportal.bioontology.org/ontologies/TAO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FTAO_0002121"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/BAO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/MA_0000353",
+      "ui": "http://bioportal.bioontology.org/ontologies/MA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMA_0000353"
+    },
+    {
+      "id": "http://phenomebrowser.net/ontologies/mesh/mesh.owl#A03.556.875.875",
+      "ui": "http://bioportal.bioontology.org/ontologies/RH-MESH?p=classes&conceptid=http%3A%2F%2Fphenomebrowser.net%2Fontologies%2Fmesh%2Fmesh.owl%23A03.556.875.875"
+    },
+    {
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12391",
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C12391"
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/LNC/LA4476-3",
+      "ui": "http://bioportal.bioontology.org/ontologies/LOINC?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FLNC%2FLA4476-3"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/NBO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/SYN?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23Stomach"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDAA2_0001915",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDAA2?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDAA2_0001915"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/BSA_0000123",
+      "ui": "http://bioportal.bioontology.org/ontologies/BSAO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBSA_0000123"
+    },
+    {
+      "id": "http://purl.org/obo/owl/FMA#FMA_7148",
+      "ui": "http://bioportal.bioontology.org/ontologies/EP?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fobo%2Fowl%2FFMA%23FMA_7148"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/UBERON?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/MFO_0003120",
+      "ui": "http://bioportal.bioontology.org/ontologies/MFO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMFO_0003120"
+    },
+    {
+      "id": "http://purl.org/imbi/dco/dco#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/DCO-DEBUGIT?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fimbi%2Fdco%2Fdco%23Stomach"
+    },
+    {
+      "id": "http://www.semanticweb.org/ontologies/2010/10/BPO.owl#stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/BHO?p=classes&conceptid=http%3A%2F%2Fwww.semanticweb.org%2Fontologies%2F2010%2F10%2FBPO.owl%23stomach"
+    },
+    {
+      "id": "http://www.bioontology.org/pma.owl#PMA_682",
+      "ui": "http://bioportal.bioontology.org/ontologies/PMA?p=classes&conceptid=http%3A%2F%2Fwww.bioontology.org%2Fpma.owl%23PMA_682"
+    },
+    {
+      "id": "http://ecoinformatics.org/oboe/oboe.1.0/oboe-anatomy.owl#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/OBOE-SBC?p=classes&conceptid=http%3A%2F%2Fecoinformatics.org%2Foboe%2Foboe.1.0%2Foboe-anatomy.owl%23Stomach"
+    },
+    {
+      "id": "http://www.semanticweb.org/pallabi.d/ontologies/2014/2/untitled-ontology-11#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/MCCL?p=classes&conceptid=http%3A%2F%2Fwww.semanticweb.org%2Fpallabi.d%2Fontologies%2F2014%2F2%2Funtitled-ontology-11%23Stomach"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/VO?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/MTHMST/MT010010",
+      "ui": "http://bioportal.bioontology.org/ontologies/MSTDE?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FMTHMST%2FMT010010"
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/CSP/1250-7954",
+      "ui": "http://bioportal.bioontology.org/ontologies/CRISP?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FCSP%2F1250-7954"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/UBERON_0000945",
+      "ui": "http://bioportal.bioontology.org/ontologies/NIFSTD?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000945"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/EHDAA_2993",
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDAA?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FEHDAA_2993"
+    },
+    {
+      "id": "http://purl.bioontology.org/ontology/MESH/D013270",
+      "ui": "http://bioportal.bioontology.org/ontologies/MESH?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FMESH%2FD013270"
+    },
+    {
+      "id": "http://sig.uw.edu/fma#Stomach",
+      "ui": "http://bioportal.bioontology.org/ontologies/HUPSON?p=classes&conceptid=http%3A%2F%2Fsig.uw.edu%2Ffma%23Stomach"
+    },
+    {
+      "id": "http://purl.obolibrary.org/obo/VHOG_0000408",
+      "ui": "http://bioportal.bioontology.org/ontologies/VHOG?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FVHOG_0000408"
+    }
+  ],
+  "ontologies": [
+    {
+      "id": "http://data.bioontology.org/ontologies/ICNP",
+      "acronym": "ICNP",
+      "rank": 936,
+      "ui": "http://bioportal.bioontology.org/ontologies/ICNP"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MEO",
+      "acronym": "MEO",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/MEO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/XAO",
+      "acronym": "XAO",
+      "rank": 836,
+      "ui": "http://bioportal.bioontology.org/ontologies/XAO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/PATHLEX",
+      "acronym": "PATHLEX",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/PATHLEX"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/BIOMODELS",
+      "acronym": "BIOMODELS",
+      "rank": 802,
+      "ui": "http://bioportal.bioontology.org/ontologies/BIOMODELS"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/EHDA",
+      "acronym": "EHDA",
+      "rank": 767,
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/OAE",
+      "acronym": "OAE",
+      "rank": 920,
+      "ui": "http://bioportal.bioontology.org/ontologies/OAE"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/RH-MESH",
+      "acronym": "RH-MESH",
+      "rank": 712,
+      "ui": "http://bioportal.bioontology.org/ontologies/RH-MESH"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/CCONT",
+      "acronym": "CCONT",
+      "rank": 883,
+      "ui": "http://bioportal.bioontology.org/ontologies/CCONT"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/ROO",
+      "acronym": "ROO",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/ROO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/APAONTO",
+      "acronym": "APAONTO",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/APAONTO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/AURA",
+      "acronym": "AURA",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/AURA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MSTDE-FRE",
+      "acronym": "MSTDE-FRE",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/MSTDE-FRE"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MAT",
+      "acronym": "MAT",
+      "rank": 893,
+      "ui": "http://bioportal.bioontology.org/ontologies/MAT"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/IFAR",
+      "acronym": "IFAR",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/IFAR"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/OBI_BCGO",
+      "acronym": "OBI_BCGO",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/OBI_BCGO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/FMA",
+      "acronym": "FMA",
+      "rank": 989,
+      "ui": "http://bioportal.bioontology.org/ontologies/FMA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/TAO",
+      "acronym": "TAO",
+      "rank": 867,
+      "ui": "http://bioportal.bioontology.org/ontologies/TAO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/BAO",
+      "acronym": "BAO",
+      "rank": 952,
+      "ui": "http://bioportal.bioontology.org/ontologies/BAO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MA",
+      "acronym": "MA",
+      "rank": 975,
+      "ui": "http://bioportal.bioontology.org/ontologies/MA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/NCIT",
+      "acronym": "NCIT",
+      "rank": 999,
+      "ui": "http://bioportal.bioontology.org/ontologies/NCIT"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/LOINC",
+      "acronym": "LOINC",
+      "rank": 988,
+      "ui": "http://bioportal.bioontology.org/ontologies/LOINC"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/NBO",
+      "acronym": "NBO",
+      "rank": 915,
+      "ui": "http://bioportal.bioontology.org/ontologies/NBO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/SYN",
+      "acronym": "SYN",
+      "rank": 925,
+      "ui": "http://bioportal.bioontology.org/ontologies/SYN"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/EHDAA2",
+      "acronym": "EHDAA2",
+      "rank": 785,
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDAA2"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/BSAO",
+      "acronym": "BSAO",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/BSAO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/EP",
+      "acronym": "EP",
+      "rank": 842,
+      "ui": "http://bioportal.bioontology.org/ontologies/EP"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/UBERON",
+      "acronym": "UBERON",
+      "rank": 973,
+      "ui": "http://bioportal.bioontology.org/ontologies/UBERON"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MFO",
+      "acronym": "MFO",
+      "rank": 764,
+      "ui": "http://bioportal.bioontology.org/ontologies/MFO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/DCO-DEBUGIT",
+      "acronym": "DCO-DEBUGIT",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/DCO-DEBUGIT"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/BHO",
+      "acronym": "BHO",
+      "rank": 770,
+      "ui": "http://bioportal.bioontology.org/ontologies/BHO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/PMA",
+      "acronym": "PMA",
+      "rank": 888,
+      "ui": "http://bioportal.bioontology.org/ontologies/PMA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/OBOE-SBC",
+      "acronym": "OBOE-SBC",
+      "rank": 752,
+      "ui": "http://bioportal.bioontology.org/ontologies/OBOE-SBC"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MCCL",
+      "acronym": "MCCL",
+      "rank": 901,
+      "ui": "http://bioportal.bioontology.org/ontologies/MCCL"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/VO",
+      "acronym": "VO",
+      "rank": 858,
+      "ui": "http://bioportal.bioontology.org/ontologies/VO"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MSTDE",
+      "acronym": "MSTDE",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/MSTDE"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/CRISP",
+      "acronym": "CRISP",
+      "rank": 935,
+      "ui": "http://bioportal.bioontology.org/ontologies/CRISP"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/NIFSTD",
+      "acronym": "NIFSTD",
+      "rank": 979,
+      "ui": "http://bioportal.bioontology.org/ontologies/NIFSTD"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/EHDAA",
+      "acronym": "EHDAA",
+      "rank": 838,
+      "ui": "http://bioportal.bioontology.org/ontologies/EHDAA"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/MESH",
+      "acronym": "MESH",
+      "rank": 991,
+      "ui": "http://bioportal.bioontology.org/ontologies/MESH"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/HUPSON",
+      "acronym": "HUPSON",
+      "rank": 0,
+      "ui": "http://bioportal.bioontology.org/ontologies/HUPSON"
+    },
+    {
+      "id": "http://data.bioontology.org/ontologies/VHOG",
+      "acronym": "VHOG",
+      "rank": 823,
+      "ui": "http://bioportal.bioontology.org/ontologies/VHOG"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "Internal organ that is the dilated portion of the alimentary tract situated between the esophagus and the beginning of the duodenum. It produces gastric juices involved in the breakdown of food.",
+      "count": 2
+    },
+    {
+      "definition": "Pancreas-Specimen-Target site-Stomach",
+      "count": 1
+    },
+    {
+      "definition": "An expanded region of the vertebrate alimentary tract that serves as a food storage compartment and digestive organ. A stomach is lined, in whole or in part by a glandular epithelium.",
+      "count": 5
+    },
+    {
+      "definition": "Taxon notes: We restrict this to the vertebrate specific structure - see the grouping class 'food storage organ' for analogous structures in other species. Teleosts: Zebrafish is functionally stomach-less, but may retain ontogenic footprint. Although the precise shape and size of the stomach varies widely among different vertebrates, the relative positions of the oesophageal and duodenal openings remain relatively constant. As a result, the organ always curves somewhat to the left before curving back to meet the pyloric sphincter. However, lampreys, hagfishes, chimaeras, lungfishes, and some teleost fish have no stomach at all, with the oesophagus opening directly into the intestine. The gastric lining is usually divided into two regions, an anterior portion lined by fundic glands, and a posterior with pyloric glands. Cardiac glands are unique to mammals, and even then are absent in a number of species. The distributions of these glands vary between species, and do not always correspond with the same regions as in man. Furthermore, in many non-human mammals, a portion of the stomach anterior to the cardiac glands is lined with epithelium essentially identical to that of the oesophagus. Ruminants, in particular, have a complex stomach, the first three chambers of which are all lined with oesophageal mucosa -- Stomach#In_other_animals",
+      "count": 1
+    },
+    {
+      "definition": "Organ with organ cavity which is continuous proximally with the esophagus and distally with the small intestine. Examples: There is only one stomach.",
+      "count": 2
+    },
+    {
+      "definition": "ABDOMEN: Gastrointestinal Tract > Stomach",
+      "count": 1
+    },
+    {
+      "definition": "An organ located under the diaphragm, between the liver and the spleen as well as between the esophagus and the small intestine. The stomach is the primary organ of food digestion.",
+      "count": 1
+    },
+    {
+      "definition": "organ of digestion situated in the left upper quadrant of the abdomen between the termination of the esophagus and the beginning of the duodenum.",
+      "count": 2
+    },
+    {
+      "definition": "An organ of digestion situated in the left upper quadrant of the abdomen between the termination of the ESOPHAGUS and the beginning of the DUODENUM.",
+      "count": 1
+    },
+    {
+      "definition": "Organ with organ cavity which is continuous proximally with the esophagus and distally with the small intestine. Examples: There is only one stomach.\n\nsource: http://sig.uw.edu/fma#Stomach",
+      "count": 1
+    }
+  ],
+  "synonyms": [
+    {
+      "synonym": "Gastrointestinal Tract, Stomach",
+      "count": 10
+    },
+    {
+      "synonym": "Gastric",
+      "count": 4
+    },
+    {
+      "synonym": "stomach lavage",
+      "count": 2
+    },
+    {
+      "synonym": "gastric",
+      "count": 7
+    },
+    {
+      "synonym": "hiatal hernia",
+      "count": 1
+    },
+    {
+      "synonym": "gastroparesis",
+      "count": 15
+    },
+    {
+      "synonym": "gastric cardia",
+      "count": 1
+    },
+    {
+      "synonym": "Stomachs",
+      "count": 1
+    }
+  ],
+  "parents": [
+    {
+      "term": "GastrointestinalSystemComponent",
+      "count": 1
+    },
+    {
+      "term": "Alimentary system",
+      "count": 1
+    },
+    {
+      "term": "viscus",
+      "count": 1
+    },
+    {
+      "term": "foregut",
+      "count": 11
+    },
+    {
+      "term": "cavitated compound organ",
+      "count": 3
+    },
+    {
+      "term": "alimentary system",
+      "count": 2
+    },
+    {
+      "term": "Not classified",
+      "count": 1
+    },
+    {
+      "term": "Organ with organ cavity",
+      "count": 3
+    },
+    {
+      "term": "Stomach",
+      "count": 1
+    },
+    {
+      "term": "animal component",
+      "count": 1
+    },
+    {
+      "term": "Body Part, Organ, or Organ Component",
+      "count": 1
+    },
+    {
+      "term": "Digestive-Organ",
+      "count": 1
+    },
+    {
+      "term": "Gastrointestinal Tract",
+      "count": 1
+    },
+    {
+      "term": "subdivision of digestive tract",
+      "count": 4
+    },
+    {
+      "term": "digestive system element",
+      "count": 1
+    },
+    {
+      "term": "Compartment of male abdomen",
+      "count": 1
+    },
+    {
+      "term": "Gastrointestinal tract",
+      "count": 1
+    },
+    {
+      "term": "Upper gastrointestinal tract",
+      "count": 1
+    },
+    {
+      "term": "Compartment of female abdomen",
+      "count": 1
+    },
+    {
+      "term": "gut",
+      "count": 1
+    },
+    {
+      "term": "anatomical entity",
+      "count": 2
+    },
+    {
+      "term": "abdomen organ",
+      "count": 1
+    },
+    {
+      "term": "Upper Gastrointestinal Tract",
+      "count": 2
+    },
+    {
+      "term": "Organ",
+      "count": 2
+    },
+    {
+      "term": "food storage organ",
+      "count": 3
+    },
+    {
+      "term": "foregut region",
+      "count": 1
+    },
+    {
+      "term": "compound organ",
+      "count": 1
+    },
+    {
+      "term": "blastozooid",
+      "count": 1
+    },
+    {
+      "term": "digestive system",
+      "count": 1
+    },
+    {
+      "term": "organ",
+      "count": 2
+    },
+    {
+      "term": "gastrointestinal_organ",
+      "count": 1
+    },
+    {
+      "term": "Cavitated Compound Organ",
+      "count": 1
+    },
+    {
+      "term": "UpperGastrointestinalTract",
+      "count": 1
+    },
+    {
+      "term": "gross anatomical part",
+      "count": 1
+    },
+    {
+      "term": "gastrointestinal system",
+      "count": 1
+    }
+  ],
+  "children": [
+    {
+      "term": "pyloric sphincter",
+      "count": 1
+    },
+    {
+      "term": "rest of stomach",
+      "count": 8
+    },
+    {
+      "term": "fundus",
+      "count": 7
+    },
+    {
+      "term": "mesentery",
+      "count": 9
+    },
+    {
+      "term": "pyloric region",
+      "count": 9
+    },
+    {
+      "term": "associated mesenchyme",
+      "count": 3
+    },
+    {
+      "term": "endodermal epithelium",
+      "count": 3
+    },
+    {
+      "term": "Structural abnormalities of the stomach",
+      "count": 1
+    },
+    {
+      "term": "Functional abnormalities of the stomach",
+      "count": 1
+    },
+    {
+      "term": "Wall of stomach",
+      "count": 1
+    },
+    {
+      "term": "Pylorus",
+      "count": 3
+    },
+    {
+      "term": "Fundus of stomach",
+      "count": 1
+    },
+    {
+      "term": "Cavity of stomach",
+      "count": 1
+    },
+    {
+      "term": "Body of stomach",
+      "count": 1
+    },
+    {
+      "term": "Gastroduodenal junction",
+      "count": 1
+    },
+    {
+      "term": "Cardia of stomach",
+      "count": 1
+    },
+    {
+      "term": "Pyloric antrum",
+      "count": 1
+    },
+    {
+      "term": "Pyloric canal",
+      "count": 1
+    },
+    {
+      "term": "forestomach",
+      "count": 1
+    },
+    {
+      "term": "stomach mesentery",
+      "count": 2
+    },
+    {
+      "term": "stomach region",
+      "count": 1
+    },
+    {
+      "term": "limiting ridge of stomach",
+      "count": 1
+    },
+    {
+      "term": "stomach wall",
+      "count": 1
+    },
+    {
+      "term": "Gastric Stump",
+      "count": 2
+    },
+    {
+      "term": "Stomach",
+      "count": 1
+    },
+    {
+      "term": "Gastric Mucosa",
+      "count": 2
+    },
+    {
+      "term": "Esophagogastric Junction",
+      "count": 2
+    },
+    {
+      "term": "Gastric Fundus",
+      "count": 2
+    },
+    {
+      "term": "Cardia",
+      "count": 2
+    },
+    {
+      "term": "Pyloric Antrum",
+      "count": 2
+    },
+    {
+      "term": "ruminant stomach",
+      "count": 3
+    },
+    {
+      "term": "equine glandular stomach",
+      "count": 3
+    },
+    {
+      "term": "gizzard",
+      "count": 3
+    },
+    {
+      "term": "early stomach associated mesenchyme",
+      "count": 1
+    },
+    {
+      "term": "early stomach epithelium",
+      "count": 1
+    },
+    {
+      "term": "stomach fundus",
+      "count": 2
+    },
+    {
+      "term": "stomach pyloric region",
+      "count": 1
+    },
+    {
+      "term": "pyloric gland",
+      "count": 1
+    },
+    {
+      "term": "pyloric caecum",
+      "count": 1
+    },
+    {
+      "term": "GastricMucosa",
+      "count": 1
+    },
+    {
+      "term": "GastricFundus",
+      "count": 1
+    },
+    {
+      "term": "gastric mucosa",
+      "count": 1
+    },
+    {
+      "term": "mesogastrium",
+      "count": 1
+    },
+    {
+      "term": "stomach epithelium",
+      "count": 1
+    }
+  ],
+  "analytics": {
+    "2015": {
+      "10": 1,
+      "5": 2,
+      "3": 1,
+      "1": 0,
+      "2": 0,
+      "4": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "11": 0,
+      "12": 0
+    },
+    "2014": {
+      "12": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    }
+  }
+}

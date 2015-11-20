@@ -9,13 +9,11 @@
             <span class="glyphicon glyphicon-home"></span> Concept Viewer
           </a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
             <li class="active"><a ng-href="#/">Search</a></li>
             <li><a ng-href="#">About</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right acme-navbar-text">
             <li>Application was created {{ vm.relativeDate }}.</li>
           </ul>
@@ -30,7 +28,7 @@
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
-          <h4>What is <span style="font-style: italic; font-weight: bold;">{{query}}</span>?</h4>
+          <h4>What is <span style="font-style: italic; font-weight: bold;">{{q}}</span>?</h4>
         </div>
 
         <div class="slides-container"
@@ -42,6 +40,7 @@
                  jssor-trigger="{{$last}}">
               <div ng-bind-html="def.definition"></div>
               <i>Count: {{def.count}}</i>
+
             </div>
           </div>
           <!-- Bullet Navigator -->
@@ -57,14 +56,19 @@
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
-        <div class="caption">
-          <h4>Synonyms</h4>
+        <div class="caption" style="height:90%">
+          <h3>Synonyms</h3>
 
-          <div ng-if="dataContainer.words.length > 0">
-            <jqcloud words="dataContainer.words" width="280" height="190" steps="7"
-                     style="/*border-width: 1px; border-style: solid;*/ margin: auto"></jqcloud>
+          <div ng-if="dataContainer.words.length > 0" style="height:100%">
+            <jqcloud
+                style="height:100%"
+                words="dataContainer.words"
+                auto-resize="true"
+                steps="dataContainer.wordSteps"
+                colors="{{dataContainer.wordColors}}"
+                font-size="dataContainer.wordFontSizes"></jqcloud>
           </div>
         </div>
       </div>
@@ -74,15 +78,16 @@
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
-            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-              <uib-slide ng-repeat="slide in slides" active="slide.active">
-                <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:220px;">
-                <div class="carousel-caption">
-                  <!--<h4>Image {{$index+1}}</h4>-->
-                  <p>{{slide.text}}</p>
-                </div>
-              </uib-slide>
-            </uib-carousel>
+          <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+            <uib-slide ng-repeat="slide in slides" active="slide.active">
+              <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:220px;">
+
+              <div class="carousel-caption">
+                <!--<h4>Image {{$index+1}}</h4>-->
+                <p>{{slide.text}}</p>
+              </div>
+            </uib-slide>
+          </uib-carousel>
         </div>
       </div>
     </div>
@@ -138,9 +143,5 @@
       </div>
     </div>
   </div>
-  <div class="row">
-
-  </div>
-
 
 </div>
