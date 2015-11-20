@@ -5,13 +5,13 @@
     <nav class="navbar navbar-static-top navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" ng-href="/#/">
             <span class="glyphicon glyphicon-home"></span> Concept Viewer
           </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
-            <li class="active"><a ng-href="#/">Search</a></li>
+            <li class="active"><a ng-href="/#/">Search</a></li>
             <li><a ng-href="#">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right acme-navbar-text">
@@ -72,8 +72,7 @@
         <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
         <div class="caption" style="height:90%">
-          <h3>Synonyms</h3>
-
+          <h4>Also known as...</h4>
           <div ng-if="$root.dataContainer.words.length > 0" style="height:100%">
             <jqcloud
                 style="height:100%"
@@ -83,6 +82,7 @@
                 colors="{{$root.dataContainer.wordColors}}"
                 font-size="$root.dataContainer.wordFontSizes"></jqcloud>
           </div>
+
         </div>
       </div>
     </div>
@@ -122,10 +122,19 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
-        <div class="caption">
+        <div class="caption" style="height:90%">
           <h4>Ontologies</h4>
+          <div ng-if="$root.dataContainer.ontoWords.length > 0" style="height:100%; width: 100%;">
+            <jqcloud
+                style="height:100%"
+                words="$root.dataContainer.ontoWords"
+                auto-resize="true"
+                steps="$root.dataContainer.wordSteps"
+                colors="{{$root.dataContainer.wordColors}}"
+                font-size="$root.dataContainer.wordFontSizes"></jqcloud>
+          </div>
         </div>
       </div>
     </div>
@@ -135,6 +144,8 @@
 
         <div class="caption">
           <h4>URIs</h4>
+          <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
+
         </div>
       </div>
     </div>
