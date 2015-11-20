@@ -9,6 +9,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     ConceptService.getBaseData(query).then(function (response) {
       $scope.fillUpSlider(response);
       $scope.fillUpWordCloud(response);
+      $scope.fillUpOntoWordCloud(response);
       //console.log("RESPONSE is:");
       //console.log(response);
     });
@@ -123,6 +124,24 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $rootScope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
   }
 
+  //------ Configure jqCloud for ontologies ----------------------------------------------------------------------
+
+  $scope.fillUpOntoWordCloud = function (response) {
+    var onts = response.ontologies;
+
+    console.log("CREATE WORD CLOUD FOR ONTOLOGIES");
+    var ontologies = [];
+    for (var i in onts) {
+      var s = {"text": onts[i].acronym, "weight": onts[i].rank};
+      ontologies.push(s);
+    }
+
+    var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+    $rootScope.dataContainer.wordColors = colors;
+    $rootScope.dataContainer.wordSteps = colors.length;
+    $rootScope.dataContainer.ontoWords = ontologies;
+    $rootScope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
+  }
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
   $scope.doTheGraph = function (response) {
