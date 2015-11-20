@@ -42,7 +42,7 @@ var ccvTree = function ($document, CONST) {
     var cn = angular.copy(n);
     cn.nodeIndex = nodeIndex;
     cn.nodeType = nodeType;
-    //cn.fixed = true;
+    cn.fixed = true;
     graph.nodes.push(cn);
     return cn;
   }
@@ -162,7 +162,7 @@ var ccvTree = function ($document, CONST) {
     node = node.data(graph.nodes)
       .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 22)
+      .attr("r", 12)
       .on("dblclick", dblclick)
       .call(drag);
 
