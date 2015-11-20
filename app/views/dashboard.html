@@ -127,10 +127,17 @@
 
         <div class="caption">
           <h4>Relevant URIs</h4>
+          <nvd3-multi-bar-horizontal-chart
+              data="idsData"
+              showXAxis="true"
+              showYAxis="true"
+              margin="0"
+              height="580">
+          </nvd3-multi-bar-horizontal-chart>
           <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
-          <div ng-repeat="id in dataContainer.ids">
-            <p>{{id.id}}</p>
-          </div>
+          <!--<div ng-repeat="id in dataContainer.ids">-->
+            <!--<p>{{id.id}}</p>-->
+          <!--</div>-->
         </div>
       </div>
     </div>

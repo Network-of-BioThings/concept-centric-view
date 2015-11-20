@@ -88,6 +88,27 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
   $scope.doTheUris = function (response) {
     $scope.dataContainer.ids = response.ids;
+
+    var idsCount = [];
+    for (var i = 0; i < response.ids.length; i++) {
+      idsCount.push([response.ids[i].id,
+        response.ids[i].count])
+      };
+
+    idsCount = idsCount.sort(ComparatorUris);
+    idsCount = idsCount.slice(0, Math.min(idsCount.length, 20));
+
+    $scope.idsData = [
+      {
+        "key": "Series 1",
+        "values": idsCount
+      }];
+  }
+
+  function ComparatorUris(a,b){
+    if (a[1] < b[1]) return 1;
+    if (a[1] > b[1]) return -1;
+    return 0;
   }
 
   $scope.doTheAnalytics = function (response) {
