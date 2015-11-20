@@ -84,7 +84,8 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $scope.exampleData = [
       {
         "key": "Series 1",
-        "values": [[1, response.analytics["2014"]["11"]],
+        "values": [
+          [1, response.analytics["2014"]["11"]],
           [2, response.analytics["2014"]["12"]],
           [3, response.analytics["2015"]["1"]],
           [4, response.analytics["2015"]["2"]],

@@ -137,6 +137,9 @@ h3 {
   padding-top: 0px;
   margin-top: 0px;
 }
+.node text {
+  pointer-events: none;
+}
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  less dependencies when defined in the bower.json of your dependencies
