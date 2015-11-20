@@ -8,7 +8,7 @@ angularApp.service('ConceptService', function ConceptService($http) {
   return {
     serviceId: "ConceptService",
     concept: function(query) {
-      var url = apiService + query + '&apikey=' + apikey;
+      var url = apiService + query + '&include_family=true&include_analytics=true&include_images=true&apikey=' + apikey;
       //var url = "json-examples/sample_output.json";
       return $http.get(url).then(function(response) {
         return response.data;

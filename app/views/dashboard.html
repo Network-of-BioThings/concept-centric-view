@@ -1,135 +1,146 @@
 <div class="container">
 
-    <!--NavBar-->
-    <div>
-        <nav class="navbar navbar-static-top navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">
-                        <span class="glyphicon glyphicon-home"></span> Concept Viewer
-                    </a>
-                </div>
+  <!--NavBar-->
+  <div>
+    <nav class="navbar navbar-static-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <span class="glyphicon glyphicon-home"></span> Concept Viewer
+          </a>
+        </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a ng-href="#/">Search</a></li>
-                        <li><a ng-href="#">About</a></li>
-                    </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+          <ul class="nav navbar-nav">
+            <li class="active"><a ng-href="#/">Search</a></li>
+            <li><a ng-href="#">About</a></li>
+          </ul>
 
-                    <ul class="nav navbar-nav navbar-right acme-navbar-text">
-                        <li>Application was created {{ vm.relativeDate }}.</li>
-                    </ul>
-                </div>
+          <ul class="nav navbar-nav navbar-right acme-navbar-text">
+            <li>Application was created {{ vm.relativeDate }}.</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+
+        <div class="caption">
+          <h4>What is <span style="font-style: italic; font-weight: bold;">{{query}}</span>?</h4>
+        </div>
+
+        <div class="slides-container"
+             style="font-style: italic; position: relative; top: 0px; left: 0px; width:280px;height: 180px;margin-left:auto;margin-right:auto; /*border-width: 1px; border-style: solid;*/"
+             ng-if="dataContainer.definitions.length > 0">
+          <div u="slides"
+               style="cursor: move; position: absolute; overflow: hidden; left: 10px; top: 0px; width: 260px; height: 180px;">
+            <div ng-repeat='def in dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
+                 jssor-trigger="{{$last}}">
+              <div ng-bind-html="def.definition"></div>
+              <i>Count: {{def.count}}</i>
             </div>
-        </nav>
+          </div>
+          <!-- Bullet Navigator -->
+          <div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">
+            <div data-u="prototype" style="width:12px;height:12px;"></div>
+          </div>
+          <!-- Arrow Navigator -->
+          <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: 8px;"></span>
+          <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
+        </div>
+
+      </div>
     </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <div class="caption">
+          <h4>Synonyms</h4>
 
-                <div class="caption">
-                    <h3>Definitions</h3>
-                </div>
-
-                <div class="slides-container" style="position: relative; top: 0px; left: 0px; width:420px;height: 160px;margin-left:auto;margin-right:auto;" ng-if="dataContainer.definitions.length > 0">
-                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 160px;">
-                        <div ng-repeat='def in dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
-                             jssor-trigger="{{$last}}">
-                            <div ng-bind-html="def.definition"></div>
-                            <i>Count: {{def.count}}</i>
-                        </div>
-                    </div>
-                    <!-- Bullet Navigator -->
-                    <div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">
-                        <div data-u="prototype" style="width:12px;height:12px;"></div>
-                    </div>
-                    <!-- Arrow Navigator -->
-                    <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: 8px;"></span>
-                    <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
-                </div>
-
-            </div>
+          <div ng-if="dataContainer.words.length > 0">
+            <jqcloud words="dataContainer.words" width="280" height="190" steps="7"
+                     style="/*border-width: 1px; border-style: solid;*/ margin: auto"></jqcloud>
+          </div>
         </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-
-                <div class="caption">
-                    <h3>Synonyms</h3>
-
-                    <div ng-if="dataContainer.words.length > 0">
-                            asfasfasfasdf
-                        <jqcloud words="dataContainer.words" width="300" height="150" steps="7"></jqcloud>
-
-                        <!--<wordcloud-->
-                                <!--words="dataContainer.synonyms"-->
-                                <!--on-click="onClickWord(element)"-->
-                                <!--on-hover="onHoverWord(element)">-->
-                        <!--</wordcloud>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-
-                <div class="caption">
-                    <h3>Images</h3>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div style="height:700px" class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
-                <div class="caption">
-                    <h3>Knowledge Graph</h3>
-
-                    <div id="treeContainer" ccv-tree="true" ng-if="dataContainer.term != null" style="border:2px dashed #dddddd;"></div>
+        <div class="caption">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+              <uib-slide ng-repeat="slide in slides" active="slide.active">
+                <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:220px;">
+                <div class="carousel-caption">
+                  <!--<h4>Image {{$index+1}}</h4>-->
+                  <p>{{slide.text}}</p>
                 </div>
-            </div>
+              </uib-slide>
+            </uib-carousel>
         </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div style="height:600px" class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
-                <div class="caption">
-                    <h3>Images</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <div class="caption">
+          <h4>Graph View</h4>
 
-                <div class="caption">
-                    <h3>Images</h3>
-                </div>
-            </div>
+          <div id="treeContainer" ccv-tree="true" ng-if="dataContainer.term != null"
+               style="border:2px dashed #dddddd;"></div>
         </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-
-                <div class="caption">
-                    <nvd3-line-chart
-                            data="exampleData"
-                            showXAxis="true"
-                            showYAxis="true"
-                            tooltips="true"
-                            interactive="true">
-                    </nvd3-line-chart>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+
+        <div class="caption">
+          <h4>Ontologies</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+
+        <div class="caption">
+          <h4>URIs</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div style="height:200px" class="thumbnail">
+      <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+
+      <div class="caption">
+        <h4>BioPortal Searches</h4>
+        <nvd3-line-chart
+            data="exampleData"
+            showXAxis="true"
+            showYAxis="true"
+            tooltips="true"
+            interactive="true"
+            isArea="true">
+        </nvd3-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
 
 
 </div>
