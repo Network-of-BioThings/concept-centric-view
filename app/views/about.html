@@ -1,0 +1,41 @@
+<div class="container">
+
+  <!--<div>-->
+  <!--<acme-navbar creation-date="This is an example"></acme-navbar>-->
+  <!--</div>-->
+
+  <div>
+    <nav class="navbar navbar-static-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ng-href="/#/">
+            <span class="glyphicon glyphicon-home"></span> Concept Viewer
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+          <ul class="nav navbar-nav">
+            <li><a ng-href="/#/search">Search</a></li>
+            <li class="active"><a ng-href="#">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right acme-navbar-text">
+            <li>Application was created {{ vm.relativeDate }}.</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="jumbotron text-center">
+    <h2>Concept Viewer</h2>
+    <div style="font-size:16px; margin-top: 30px; margin-bottom: 300px">
+      <p>A tool that provides a concept-centric view across all BioPortal ontologies</p>
+      <p>Proudly created in 29 hours by: Misha Dorf, Attila L. Egyedia, Clement Jonquet and Marcos Martinez-Romero</p>
+      <p>at the <a href="https://github.com/Network-of-BioThings/nob-hq/wiki/2nd-Network-of-BioThings-Hackathon">2nd Network of BioThings Hackathon</a></p>
+      <br />
+      <br />
+      <p>Front-End: <a href="https://github.com/Network-of-BioThings/concept-centric-view">https://github.com/Network-of-BioThings/concept-centric-view</a></p>
+      <p>Back-End: <a href="https://github.com/ncbo/ontologies_api/blob/staging/controllers/ccv_controller.rb">https://github.com/ncbo/ontologies_api/blob/staging/controllers/ccv_controller.rb</a>
+    </div>
+  </div>
+</div>
