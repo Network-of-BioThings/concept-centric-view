@@ -1,6 +1,6 @@
 'use strict';
 
-var ccvTree = function ($document, $rootScope, $location, CONST) {
+var ccvTree = function ($document, $rootScope, $location, $filter, CONST) {
 
   var link;
   var node;
@@ -33,23 +33,34 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
 
   function dblclick(d) {
     d3.select(this).classed("fixed", d.fixed = false);
+    $rootScope.resetDataContainer();
+    $location.path("dashboard/" + d.term);
   }
 
   function dragstart(d) {
     d3.select(this).classed("fixed", d.fixed = true);
     //console.log(d.term);
-    $rootScope.resetDataContainer();
-    $location.path("dashboard/" + d.term);
   }
 
-  function pushNode(n, nodeType, graph) {
-    var nodeIndex = graph.nodes.length;
+  function prepareNode(n, nodeType, nodes, relevancies) {
     var cn = angular.copy(n);
-    cn.nodeIndex = nodeIndex;
     cn.nodeType = nodeType;
     cn.fixed = true;
-    graph.nodes.push(cn);
+    cn.originalWeight = n.count;
+    cn.nodeRelevancy = cn.count * 100;
+    if (cn != null) {
+      cn.nodeRelevancy += (100 - cn.term.length);
+    }
+    relevancies.push(cn.nodeRelevancy)
+    nodes.push(cn);
     return cn;
+  }
+
+  function pushNode(n, graph) {
+    var nodeIndex = graph.nodes.length;
+    n.nodeIndex = nodeIndex;
+    graph.nodes.push(n);
+    return n;
   }
 
   function pushLink(sourceIdx, targetIdx, graph) {
@@ -91,30 +102,53 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
 
     var ownNode = {
       term: $rootScope.dataContainer.term,
-      count: NaN
+      count: 1
     };
 
-    var own = pushNode(ownNode, "own", graph);
+    var ownNodes = [];
+    var ownRelevancies = [];
+
+    var own = prepareNode(ownNode, "own", ownNodes, ownRelevancies);
     own.x = width / 2;
     own.y = ownY;
     own.originalWeight = 1;
-    var ownIdx = own.nodeIndex;
+    var ownNewNode = pushNode(own, graph);
+    var ownIdx = ownNewNode.nodeIndex;
+    //console.log("PUSH ROOT");
+    //console.log(ownNode);
+    //console.log(ownNewNode);
+
 
     // -- PARENTS
 
     var parents = [];
     var pl = $rootScope.dataContainer.parents;
 
+    var parentCountToShow = Math.min(pl.length, CONST.graph.parentCountLimit);
     var parentHSpace = width * CONST.graph.parentsSpanMultiplier;
-    var parentHDist = parentHSpace / (pl.length + 1);
+    var parentHDist = parentHSpace / (parentCountToShow + 1);
+    var parentNodes = [];
+    var parentRelevancies = [];
 
     for (var i in pl) {
-      var np = pushNode(pl[i], "parent", graph);
+      var np = prepareNode(pl[i], "parent", parentNodes, parentRelevancies);
       parents.push(np);
-      np.y = parentY + CONST.graph.parentYOffsets[i % CONST.graph.parentYOffsets.length];
-      np.x = (width - parentHSpace) / 2 + parentHDist * (Number(i) + 1);
-      np.originalWeight = pl[i].count;
-      pushLink(ownIdx, np.nodeIndex, graph);
+    }
+
+    var orderedPR = $filter('orderBy')(parentRelevancies, function (v) {
+      return v;
+    }, true);
+    var parentCutoffValue = orderedPR[parentCountToShow -1];
+
+    var addedParents = 0;
+    for (var i in parents) {
+      if (addedParents < parentCountToShow && parents[i].nodeRelevancy > parentCutoffValue) {
+        var np = pushNode(parents[i], graph);
+        np.y = parentY + CONST.graph.parentYOffsets[addedParents % CONST.graph.parentYOffsets.length];
+        np.x = (width - parentHSpace) / 2 + parentHDist * (addedParents + 1);
+        pushLink(ownIdx, np.nodeIndex, graph);
+        addedParents++;
+      }
     }
 
     // -- CHILDREN
@@ -122,16 +156,31 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     var children = [];
     var cl = $rootScope.dataContainer.children;
 
+    var childCountToShow = Math.min(cl.length, CONST.graph.childCountLimit);
     var childrenHSpace = width * CONST.graph.childrenSpanMultiplier;
-    var childrenHDist = childrenHSpace / (cl.length + 1);
+    var childrenHDist = childrenHSpace / (childCountToShow + 1);
+    var childNodes = [];
+    var childrenRelevancies = [];
 
     for (var i in cl) {
-      var nc = pushNode(cl[i], "child", graph);
+      var nc = prepareNode(cl[i], "child", childNodes, childrenRelevancies);
       children.push(nc);
-      nc.y = childrenY - CONST.graph.childrenYOffsets[i % CONST.graph.childrenYOffsets.length];
-      nc.x = (width - childrenHSpace) / 2 + childrenHDist * (Number(i) + 1);
-      nc.originalWeight = cl[i].count;
-      pushLink(ownIdx, nc.nodeIndex, graph);
+    }
+
+    var orderedCR = $filter('orderBy')(childrenRelevancies, function (v) {
+      return v;
+    }, true);
+    var childCutoffValue = orderedCR[childCountToShow -1];
+
+    var addedChildren = 0;
+    for (var i in children) {
+      if (addedChildren <= childCountToShow && children[i].nodeRelevancy > childCutoffValue) {
+        var nc = pushNode(children[i], graph);
+        nc.y = childrenY - CONST.graph.childrenYOffsets[addedChildren % CONST.graph.childrenYOffsets.length];
+        nc.x = (width - childrenHSpace) / 2 + childrenHDist * (addedChildren + 1);
+        pushLink(ownIdx, nc.nodeIndex, graph);
+        addedChildren++;
+      }
     }
 
     for (var i in graph.nodes) {
@@ -274,5 +323,5 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
 
 };
 
-ccvTree.$inject = ['$document', '$rootScope', '$location', 'CONST'];
+ccvTree.$inject = ['$document', '$rootScope', '$location', '$filter', 'CONST'];
 angularApp.directive('ccvTree', ccvTree);

@@ -138,7 +138,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   $scope.fillUpWordCloud = function (response) {
     var syns = response.synonyms;
 
-    console.log("CREATE WORD CLOUD");
+    //console.log("CREATE WORD CLOUD");
     var synonyms = [];
     for (var i in syns) {
       var s = {"text": syns[i].synonym, "weight": syns[i].count};
@@ -157,7 +157,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   $scope.fillUpOntoWordCloud = function (response) {
     var onts = response.ontologies;
 
-    console.log("CREATE WORD CLOUD FOR ONTOLOGIES");
+    ///console.log("CREATE WORD CLOUD FOR ONTOLOGIES");
     var ontologies = [];
     for (var i in onts) {
       var s = {"text": onts[i].acronym, "weight": onts[i].rank, "link": onts[i].ui};
@@ -177,9 +177,8 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $rootScope.dataContainer.children = response.children;
     $rootScope.dataContainer.siblings = response.siblings;
     $rootScope.dataContainer.term = response.term;
-    console.log(" DO THE GRAPH");
-    console.log($rootScope.dataContainer);
-
+    //console.log(" DO THE GRAPH");
+    //console.log($rootScope.dataContainer);
   }
 };
 

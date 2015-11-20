@@ -22,7 +22,9 @@ angularApp.constant('CONST', {
       'own': '#fd8d3c',
       'parent': "#e31a1c",
       'child': "#feb24c"
-    }
+    },
+    parentCountLimit:30,
+    childCountLimit:30
   },
   synonymWordCloud: {
     colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"]
