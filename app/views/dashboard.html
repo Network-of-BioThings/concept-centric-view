@@ -53,14 +53,15 @@
                 <div class="caption">
                     <h3>Synonyms</h3>
 
-                    <div ng-if="dataContainer.synonyms.length > 0">
+                    <div ng-if="dataContainer.words.length > 0">
 
-                        <wordcloud
-                                words="dataContainer.synonyms"
-                                on-click="onClickWord(element)"
-                                on-hover="onHoverWord(element)">
-                        </wordcloud>
+                        <jqcloud words="dataContainer.words" width="300" height="150" steps="7"></jqcloud>
 
+                        <!--<wordcloud-->
+                                <!--words="dataContainer.synonyms"-->
+                                <!--on-click="onClickWord(element)"-->
+                                <!--on-hover="onHoverWord(element)">-->
+                        <!--</wordcloud>-->
                     </div>
                 </div>
             </div>
@@ -123,4 +124,6 @@
             </div>
         </div>
     </div>
+
+
 </div>

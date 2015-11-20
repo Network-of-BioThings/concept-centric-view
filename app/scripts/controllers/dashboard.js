@@ -24,6 +24,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   $scope.dataContainer = {
     definitions: [],
     synonyms: [],
+    words: [],
     term: null
   };
 
@@ -59,7 +60,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
 //------ Configure 3D JS WordCloud for synonyms ----------------------------------------------------------------------
 
-  $scope.fillUpWordCloud = function () {
+  $scope.fillUpWordCloud_old = function () {
     var syns = $scope.conceptInfo.synonyms;
     console.log("CREATE WORD CLOUD");
     var synonyms = [];
@@ -76,6 +77,19 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
   $scope.onHoverWord = function (element) {
     console.log("hover", element);
+  }
+
+  //----- jqCloud
+
+  $scope.fillUpWordCloud = function () {
+    var syns = $scope.conceptInfo.synonyms;
+    console.log("CREATE WORD CLOUD");
+    var synonyms = [];
+    for (var i in syns) {
+      var s = { "text" : syns[i].synonym, "weight" : syns[i].count};
+      synonyms.push(s);
+    }
+    $scope.dataContainer.words = synonyms;
   }
 
   //------ Configure Graph in the middle ----------------------------------------------------------------------
