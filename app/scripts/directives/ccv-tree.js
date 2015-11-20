@@ -1,6 +1,6 @@
 'use strict';
 
-var ccvTree = function ($document) {
+var ccvTree = function ($document, CONST) {
 
   var link;
   var node;
@@ -37,74 +37,112 @@ var ccvTree = function ($document) {
     d3.select(this).classed("fixed", d.fixed = true);
   }
 
+  function pushNode(n, nodeType, graph) {
+    var nodeIndex = graph.nodes.length;
+    var cn = angular.copy(n);
+    cn.nodeIndex = nodeIndex;
+    cn.nodeType = nodeType;
+    //cn.fixed = true;
+    graph.nodes.push(cn);
+    return cn;
+  }
+
+  function pushLink(sourceIdx, targetIdx, graph) {
+
+    var x1 = graph.nodes[sourceIdx].x;
+    var y1 = graph.nodes[sourceIdx].y;
+    var x2 = graph.nodes[targetIdx].x;
+    var y2 = graph.nodes[targetIdx].y;
+
+    var l = {
+      "source": sourceIdx,
+      "target": targetIdx,
+      "origLength": Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+    };
+    graph.links.push(l);
+    return l;
+  }
+
   function prepareGraphData(scope) {
 
-    var siblingY = height * 0.5;
-    var parentY = height * 0.2;
-    var childrenY = height * 0.8;
-
-    //var parentCount = scope.parent
-
+    var ownY = height * CONST.graph.ownYMultiplier;
+    var parentY = height * CONST.graph.parentsYMultiplier;
+    var childrenY = height * CONST.graph.childrenYMultiplier;
 
     var graph = {
-      "nodes": [
-        {"x": 469, "y": 410},
-        {"x": 493, "y": 364},
-        {"x": 442, "y": 365},
-        {"x": 467, "y": 314},
-        {"x": 477, "y": 248},
-        {"x": 425, "y": 207},
-        {"x": 402, "y": 155},
-        {"x": 369, "y": 196},
-        {"x": 350, "y": 148},
-        {"x": 539, "y": 222},
-        {"x": 594, "y": 235},
-        {"x": 582, "y": 185},
-        {"x": 633, "y": 200}
-      ],
-      "links": [
-        {"source": 0, "target": 1},
-        {"source": 1, "target": 2},
-        {"source": 2, "target": 0},
-        {"source": 1, "target": 3},
-        {"source": 3, "target": 2},
-        {"source": 3, "target": 4},
-        {"source": 4, "target": 5},
-        {"source": 5, "target": 6},
-        {"source": 5, "target": 7},
-        {"source": 6, "target": 7},
-        {"source": 6, "target": 8},
-        {"source": 7, "target": 8},
-        {"source": 9, "target": 4},
-        {"source": 9, "target": 11},
-        {"source": 9, "target": 10},
-        {"source": 10, "target": 11},
-        {"source": 11, "target": 12},
-        {"source": 12, "target": 10}
-      ]
+      "nodes": [],
+      "links": []
     };
+
+    // -- OWN
+
+    var ownNode = {
+      term: scope.dataContainer.term,
+      count: NaN
+    };
+
+    var own = pushNode(ownNode, "own", graph);
+    own.x = width / 2;
+    own.y = ownY;
+    var ownIdx = own.nodeIndex;
+
+    // -- PARENTS
+
+    var parents = [];
+    var pl = scope.dataContainer.parents;
+
+    var parentHSpace = width * CONST.graph.parentsSpanMultiplier;
+    var parentHDist = parentHSpace / (pl.length + 1);
+
+    for (var i in pl) {
+      var np = pushNode(pl[i], "parent", graph);
+      parents.push(np);
+      np.y = parentY;
+      np.x = (width - parentHSpace) / 2 + parentHDist * (Number(i) + 1);
+      pushLink(ownIdx, np.nodeIndex, graph);
+    }
+
+    // -- CHILDREN
+
+    var children = [];
+    var cl = scope.dataContainer.children;
+
+    var childrenHSpace = width * CONST.graph.childrenSpanMultiplier;
+    var childrenHDist = childrenHSpace / (cl.length + 1);
+
+    for (var i in cl) {
+      var nc = pushNode(cl[i], "child", graph);
+      children.push(nc);
+      nc.y = childrenY;
+      nc.x = (width - childrenHSpace) / 2 + childrenHDist * (Number(i) + 1);
+      pushLink(ownIdx, nc.nodeIndex, graph);
+    }
+
+    console.log(graph);
+
     return graph;
   }
 
   function angularlink(scope, element, attrs) {
-    console.log("CCS TREE link");
+
+    width = CONST.graph.width;
+    height = CONST.graph.height;
 
     var graph = prepareGraphData(scope);
-
-    width = 960;
-    height = 500;
 
     var force = d3.layout.force()
       .size([width, height])
       .charge(-400)
-      .linkDistance(40)
+      .linkDistance(function(link, idx) {
+        return link.origLength;
+      })
       .on("tick", tick);
 
 
     var drag = force.drag()
       .on("dragstart", dragstart);
 
-    var svg = d3.select("#treeContainerFinal").append("svg")
+    var svg = d3.select("#treeContainer").append("svg")
       .attr("width", width)
       .attr("height", height);
 
@@ -124,7 +162,7 @@ var ccvTree = function ($document) {
     node = node.data(graph.nodes)
       .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 12)
+      .attr("r", 22)
       .on("dblclick", dblclick)
       .call(drag);
 
@@ -137,5 +175,5 @@ var ccvTree = function ($document) {
 
 };
 
-ccvTree.$inject = ['$document'];
+ccvTree.$inject = ['$document', 'CONST'];
 angularApp.directive('ccvTree', ccvTree);

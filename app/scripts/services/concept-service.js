@@ -9,7 +9,11 @@ angularApp.service('ConceptService', function FormService($http) {
     serviceId: "ConceptService",
     concept: function(query) {
       //return $http.get('/static-data/elements/'+id+'.json').then(function(response) {
-      var url = apiService + query + '&apikey=' + apikey;
+      //--var url = apiService + query + '&apikey=' + apikey;
+
+      var url = "json-examples/sample_output.json";
+
+
       return $http.get(url).then(function(response) {
         return response.data;
       }).catch(function(err) {
