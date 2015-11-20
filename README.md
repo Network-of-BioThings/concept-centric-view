@@ -5,7 +5,8 @@ This is an AngularJS web application that provides a concept-centric view across
 Created by: Misha Dorf, Attila L. Egyedia, Clement Jonquet and Marcos Martinez-Romero at the [2nd Network of BioThings Hackathon](https://github.com/Network-of-BioThings/nob-hq/wiki/2nd-Network-of-BioThings-Hackathon).
 
 Website: [http://ccv.bioontology.org/](http://ccv.bioontology.org/)
-Backend BioPortal service: [stagedata.bioontology.org/ccv?q=leukocyte](stagedata.bioontology.org/ccv?q=leukocyte)
+
+Backend BioPortal service: [http://stagedata.bioontology.org/ccv?q=leukocyte](http://stagedata.bioontology.org/ccv?q=leukocyte)
 
 The backend code is available at [the NCBO's GitHub repo](https://github.com/ncbo/ontologies_api/blob/staging/controllers/ccv_controller.rb)
 
