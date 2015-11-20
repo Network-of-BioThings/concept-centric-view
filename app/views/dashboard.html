@@ -33,14 +33,14 @@
 
         <!--&lt;!&ndash;<div class="caption">&ndash;&gt;-->
         <!--<uib-carousel interval="myIntervalDefs" no-wrap="noWrapSlides">-->
-          <!--<uib-slide ng-repeat="slide in slidesDefs" active="slide.active">-->
-            <!--<img ng-src="{{slide.image}}" style="margin:auto; height:230px;">-->
-            <!--{{slide.text}}-->
-            <!--<div class="carousel-caption" style="border-width: 1px; border-style:solid; border-color: #000">-->
-              <!--&lt;!&ndash;<h4>Image {{$index+1}}</h4>&ndash;&gt;-->
-              <!--<p style="font-size: 0.8em; font-style: italic; color: black; text-shadow: none">{{slide.text}}</p>-->
-            <!--</div>-->
-          <!--</uib-slide>-->
+        <!--<uib-slide ng-repeat="slide in slidesDefs" active="slide.active">-->
+        <!--<img ng-src="{{slide.image}}" style="margin:auto; height:230px;">-->
+        <!--{{slide.text}}-->
+        <!--<div class="carousel-caption" style="border-width: 1px; border-style:solid; border-color: #000">-->
+        <!--&lt;!&ndash;<h4>Image {{$index+1}}</h4>&ndash;&gt;-->
+        <!--<p style="font-size: 0.8em; font-style: italic; color: black; text-shadow: none">{{slide.text}}</p>-->
+        <!--</div>-->
+        <!--</uib-slide>-->
         <!--</uib-carousel>-->
         <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
@@ -58,7 +58,7 @@
           </div>
           <!-- Bullet Navigator -->
           <!--<div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">-->
-            <!--<div data-u="prototype" style="width:12px;height:12px;"></div>-->
+          <!--<div data-u="prototype" style="width:12px;height:12px;"></div>-->
           <!--</div>-->
           <!-- Arrow Navigator -->
           <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: -20px"></span>
@@ -73,6 +73,7 @@
 
         <div class="caption" style="height:90%">
           <h4>Also known as...</h4>
+
           <div ng-if="$root.dataContainer.words.length > 0" style="height:100%">
             <jqcloud
                 style="height:100%"
@@ -91,16 +92,16 @@
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <!--<div class="caption">-->
-          <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-            <uib-slide ng-repeat="slide in slides" active="slide.active">
-              <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:240px;">
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+          <uib-slide ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" height="220" style="margin:auto; height:240px;">
 
-              <div class="carousel-caption">
-                <!--<h4>Image {{$index+1}}</h4>-->
-                <p>{{slide.text}}</p>
-              </div>
-            </uib-slide>
-          </uib-carousel>
+            <div class="carousel-caption">
+              <!--<h4>Image {{$index+1}}</h4>-->
+              <p>{{slide.text}}</p>
+            </div>
+          </uib-slide>
+        </uib-carousel>
         <!--</div>-->
       </div>
     </div>
@@ -121,11 +122,24 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <div class="thumbnail">
-        <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
+      <div class="thumbnail" style="height:620px">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
+        <div class="caption">
+          <h4>Relevant URIs</h4>
+          <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
+          <div ng-repeat="id in dataContainer.ids">
+            <p>{{id.id}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="thumbnail" style="height:400px">
+        <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
         <div class="caption" style="height:90%">
           <h4>Ontologies</h4>
+
           <div ng-if="$root.dataContainer.ontoWords.length > 0" style="height:100%; width: 100%;">
             <jqcloud
                 style="height:100%"
@@ -137,35 +151,21 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="thumbnail">
+      <div style="height:200px" class="thumbnail" style="height:200px">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
-          <h4>Relevant URIs</h4>
-          <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
-
+          <h4>BioPortal Searches</h4>
+          <nvd3-line-chart
+              data="exampleData"
+              showXAxis="true"
+              showYAxis="true"
+              tooltips="true"
+              interactive="true"
+              isArea="true">
+          </nvd3-line-chart>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-12">
-    <div style="height:200px" class="thumbnail">
-      <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-
-      <div class="caption">
-        <h4>BioPortal Searches</h4>
-        <nvd3-line-chart
-            data="exampleData"
-            showXAxis="true"
-            showYAxis="true"
-            tooltips="true"
-            interactive="true"
-            isArea="true">
-        </nvd3-line-chart>
-      </div>
-    </div>
-  </div>
-
 </div>
