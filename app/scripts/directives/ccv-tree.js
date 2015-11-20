@@ -211,7 +211,7 @@ var ccvTree = function ($document, CONST) {
             .duration(250)
             .style("cursor", "none")
             .attr("font-size","2em")
-            .attr("x", 0 )
+            .attr("x", 15 )
             .attr("y", -20 )
         } else {
           //CIRCLE
