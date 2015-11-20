@@ -7,6 +7,9 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
   var width;
   var height;
   var maxWeight = 0;
+  var ownTermSize = 10;
+  var otherTermSize = 10;
+  var textOffsetProportion = -10;
 
   function tick() {
     link.attr("x1", function (d) {
@@ -65,8 +68,12 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     return l;
   }
 
-  function getTermSize(weight) {
-    return weight * CONST.graph.maxTermSize / maxWeight;
+  function getTermSize(d) {
+    if (d.nodeType == 'own') {
+      return ownTermSize;
+    } else {
+      return d.originalWeight * otherTermSize / maxWeight;
+    }
   }
 
   function prepareGraphData(scope) {
@@ -133,8 +140,6 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
       }
     }
 
-    graph.nodes[0].originalWeight = CONST.graph.ownTermSize;
-
     //console.log(graph);
 
     return graph;
@@ -147,26 +152,9 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     width = (treeThumbnail.width() != 0) ? treeThumbnail.width() - 80 : CONST.graph.backupWidth;
     height = (treeThumbnail.height() != 0) ? treeThumbnail.height() - 80 : CONST.graph.backupHeight;
 
-    var palette = {
-      "lightgray": "#819090",
-      "gray": "#708284",
-      "mediumgray": "#536870",
-      "darkgray": "#475B62",
-
-      "darkblue": "#0A2933",
-      "darkerblue": "#042029",
-
-      "paleryellow": "#FCF4DC",
-      "paleyellow": "#EAE3CB",
-      "yellow": "#A57706",
-      "orange": "#BD3613",
-      "red": "#D11C24",
-      "pink": "#C61C6F",
-      "purple": "#595AB7",
-      "blue": "#2176C7",
-      "green": "#259286",
-      "yellowgreen": "#738A05"
-    }
+    ownTermSize = height * CONST.graph.ownTermProportion;
+    otherTermSize = height * CONST.graph.otherTermProportion;
+    textOffsetProportion = height * CONST.graph.textOffsetProportion;
 
     var graph = prepareGraphData(scope);
 
@@ -212,26 +200,23 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
           d3.select(this).selectAll("circle")
             .transition()
             .duration(250)
-            .style("cursor", "none")
-            .attr("r", getTermSize(d.originalWeight) + CONST.graph.increaseTermSizeBy)
+            //.style("cursor", "none")
+            .attr("r", getTermSize(d) / 2 * CONST.graph.increasedTermProportion)
 
           //TEXT
           d3.select(this).select("text")
             .transition()
-            .style("cursor", "none")
+            //.style("cursor", "none")
             .duration(250)
-            .style("cursor", "none")
             .attr("font-size", "2em")
-            .attr("x", 15)
-            .attr("y", -20)
         } else {
           //CIRCLE
           d3.select(this).selectAll("circle")
-            .style("cursor", "none")
+          //.style("cursor", "none")
 
           //TEXT
           d3.select(this).select("text")
-            .style("cursor", "none")
+          //.style("cursor", "none")
         }
       })
 
@@ -242,25 +227,23 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
           d3.select(this).selectAll("circle")
             .transition()
             .duration(250)
-            .attr("r", getTermSize(d.originalWeight))
+            .attr("r", getTermSize(d) / 2)
 
           //TEXT
           d3.select(this).select("text")
             .transition()
             .duration(250)
             .attr("font-size", "1em")
-            .attr("x", 8)
-            .attr("y", 4)
         }
       })
       .call(drag);
 
     node.append("svg:circle")
       .attr("r", function (d) {
-        return getTermSize(d.originalWeight);
+        return getTermSize(d) / 2;
       })
       .attr("fill", function (d, i) {
-        return d.nodeType == 'parent' ? palette.paleryellow : palette.green;
+        return CONST.graph.palette[d.nodeType];
       })
 
 
@@ -269,12 +252,18 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
         return d.term;
       })
       .attr("dx", 0)
-      .attr("dy", -12)
+      .attr("dy", function (d) {
+        if (d.nodeType == 'own') {
+          return 0;
+        } else {
+          return -getTermSize(d) / 2 + CONST.graph.textYOffset;
+        }
+      })
       .attr("font-family", "Arial, Helvetica, Sans")
       .attr("font-size", function (d, i) {
         return "1em";
       })
-      .attr("text-anchor", "middle")
+      .attr("text-anchor", "middle");
 
   }
 
