@@ -10,6 +10,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       $scope.fillUpSlider(response);
       $scope.fillUpWordCloud(response);
       $scope.fillUpOntoWordCloud(response);
+      $scope.doTheUris(response);
       //console.log("RESPONSE is:");
       //console.log(response);
     });
@@ -83,6 +84,10 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
         text: ""
       });
     }
+  }
+
+  $scope.doTheUris = function (response) {
+    $scope.dataContainer.ids = response.ids;
   }
 
   $scope.doTheAnalytics = function (response) {
