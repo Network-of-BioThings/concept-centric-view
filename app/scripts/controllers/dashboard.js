@@ -1,9 +1,14 @@
 'use strict';
 
-var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService, CONST) {
+var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService, CONST, $window) {
 
   var query = $routeParams["query"];
   $scope.q = query;
+  $scope.newQuery = "";
+
+  $scope.search = function() {
+    $window.location.href = '#/dashboard/' + $scope.newQuery;
+  }
 
   if (query) {
     ConceptService.getBaseData(query).then(function (response) {
@@ -182,5 +187,5 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   }
 };
 
-DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "CONST"];
+DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "CONST", '$window'];
 angularApp.controller('DashboardController', DashboardController);

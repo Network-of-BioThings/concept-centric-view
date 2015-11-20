@@ -12,7 +12,12 @@ var angularConfig = function($routeProvider, $locationProvider) {
       templateUrl: 'views/dashboard.html',
       controller: 'DashboardController'
     })
-    .otherwise({
+    .
+    when('/about', {
+      templateUrl: 'views/about.html'
+    })
+    .
+    otherwise({
       redirectTo: '/'
     });
 };

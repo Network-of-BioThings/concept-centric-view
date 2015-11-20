@@ -5,7 +5,6 @@ var SearchController = function($rootScope, $scope, $routeParams, $location, Con
   $scope.query = "";
 
   $scope.search = function() {
-
     //console.log($scope.query);
     $window.location.href = '#/dashboard/' + $scope.query;
   }

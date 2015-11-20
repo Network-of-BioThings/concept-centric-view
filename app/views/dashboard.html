@@ -12,15 +12,33 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
             <li class="active"><a ng-href="/#/">Search</a></li>
-            <li><a ng-href="#">About</a></li>
+            <li><a ng-href="/#/about">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right acme-navbar-text">
-            <li>Application was created {{ vm.relativeDate }}.</li>
+            <!--<li>Application was created {{ vm.relativeDate }}.</li>-->
           </ul>
         </div>
       </div>
     </nav>
   </div>
+
+  <!--Search-->
+  <div>
+    <form ng-submit="search()">
+      <div style="width: 40%; margin-left: auto; margin-right: auto;">
+        <div style="float:left; width: 80%;">
+          <input class="form-control" required ng-model="newQuery"
+                 style="width:90%; margin-left:auto; margin-right:auto;"/>
+        </div>
+        <div style="float:right; width: 20%;">
+          <button type="button" class="btn btn-primary" ng-click="search()"><span>Search</span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div style="clear:both; margin-bottom: 20px"></div>
+
 
   <div class="row">
     <div class="col-sm-4">
@@ -135,7 +153,7 @@
           </nvd3-multi-bar-horizontal-chart>
           <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
           <!--<div ng-repeat="id in dataContainer.ids">-->
-            <!--<p>{{id.id}}</p>-->
+          <!--<p>{{id.id}}</p>-->
           <!--</div>-->
         </div>
       </div>
