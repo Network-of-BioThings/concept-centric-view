@@ -5,14 +5,23 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   var query = $routeParams["query"];
 
   if (query) {
-    // Using form service to load list of existing elements to embed into new form
-    ConceptService.concept(query).then(function (response) {
-      $scope.conceptInfo = response;
-      $scope.fillUpSlider();
-      $scope.fillUpWordCloud();
-      $scope.doTheGraph();
-      console.log("RESPONSE is:");
-      console.log(response);
+    ConceptService.getBaseData(query).then(function (response) {
+      $scope.fillUpSlider(response);
+      $scope.fillUpWordCloud(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+    });
+
+    ConceptService.getFamily(query).then(function (response) {
+      $scope.doTheGraph(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
+    });
+
+    ConceptService.getImages(query).then(function (response) {
+      $scope.doTheImages(response);
+      //console.log("RESPONSE is:");
+      //console.log(response);
     });
 
     // Using form service to load list of existing elements to embed into new form
@@ -58,51 +67,39 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     }
   };
 
-  $scope.fillUpSlider = function () {
-    $scope.dataContainer.definitions = $scope.conceptInfo.definitions;
+  $scope.fillUpSlider = function (response) {
+    $scope.dataContainer.definitions = response.definitions;
   }
 
-//------ Configure 3D JS WordCloud for synonyms ----------------------------------------------------------------------
+  $scope.doTheImages = function (response) {
+    $scope.dataContainer.images = response.images;
+  }
 
-  $scope.fillUpWordCloud_old = function () {
-    var syns = $scope.conceptInfo.synonyms;
+//------ Configure jqCloud for synonyms ----------------------------------------------------------------------
+
+  $scope.fillUpWordCloud = function (response) {
+    var syns = response.synonyms;
     console.log("CREATE WORD CLOUD");
     var synonyms = [];
     for (var i in syns) {
-      var s = syns[i].synonym;
+      var s = {"text": syns[i].synonym, "weight": syns[i].count};
       synonyms.push(s);
     }
-    $scope.dataContainer.synonyms = synonyms;
-  }
 
-  $scope.onClickWord = function (element) {
-    console.log("click", element);
-  }
-
-  $scope.onHoverWord = function (element) {
-    console.log("hover", element);
-  }
-
-  //----- jqCloud
-
-  $scope.fillUpWordCloud = function () {
-    var syns = $scope.conceptInfo.synonyms;
-    console.log("CREATE WORD CLOUD");
-    var synonyms = [];
-    for (var i in syns) {
-      var s = { "text" : syns[i].synonym, "weight" : syns[i].count};
-      synonyms.push(s);
-    }
+    var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+    $scope.dataContainer.wordColors = colors;
+    $scope.dataContainer.wordSteps = colors.length;
     $scope.dataContainer.words = synonyms;
+    $scope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
   }
 
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
-  $scope.doTheGraph = function () {
-    $scope.dataContainer.parents = $scope.conceptInfo.parents;
-    $scope.dataContainer.children = $scope.conceptInfo.children;
-    $scope.dataContainer.siblings = $scope.conceptInfo.siblings;
-    $scope.dataContainer.term = $scope.conceptInfo.term;
+  $scope.doTheGraph = function (response) {
+    $scope.dataContainer.parents = response.parents;
+    $scope.dataContainer.children = response.children;
+    $scope.dataContainer.siblings = response.siblings;
+    $scope.dataContainer.term = response.term;
   }
 
   // --------------------------------------------------------------------------------------------------------

@@ -27,14 +27,15 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+                <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
                 <div class="caption">
                     <h3>Definitions</h3>
                 </div>
 
-                <div class="slides-container" style="position: relative; top: 0px; left: 0px; width:420px;height: 160px;margin-left:auto;margin-right:auto;" ng-if="dataContainer.definitions.length > 0">
-                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 160px;">
+                <div class="slides-container" resize-slider="true" style="position: relative; top: -10px; left: 40px; width:220px;height: 160px;margin-left:auto;margin-right:auto;"
+                     ng-if="dataContainer.definitions.length > 0">
+                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 200px; height: 160px;">
                         <div ng-repeat='def in dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
                              jssor-trigger="{{$last}}">
                             <div ng-bind-html="def.definition"></div>
@@ -46,38 +47,54 @@
                         <div data-u="prototype" style="width:12px;height:12px;"></div>
                     </div>
                     <!-- Arrow Navigator -->
-                    <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: 8px;"></span>
-                    <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
+                    <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px;  left: -30px;"></span>
+                    <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; right:-30px"></span>
                 </div>
 
             </div>
         </div>
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+                <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
-                <div class="caption">
+                <div class="caption" style="height:90%">
                     <h3>Synonyms</h3>
 
-                    <div ng-if="dataContainer.words.length > 0">
-                            asfasfasfasdf
-                        <jqcloud words="dataContainer.words" width="300" height="150" steps="7"></jqcloud>
-
-                        <!--<wordcloud-->
-                                <!--words="dataContainer.synonyms"-->
-                                <!--on-click="onClickWord(element)"-->
-                                <!--on-hover="onHoverWord(element)">-->
-                        <!--</wordcloud>-->
+                    <div ng-if="dataContainer.words.length > 0" style="height:100%">
+                        <jqcloud
+                                style="height:100%"
+                                words="dataContainer.words"
+                                auto-resize="true"
+                                steps="dataContainer.wordSteps"
+                                colors="{{dataContainer.wordColors}}"
+                                font-size="dataContainer.wordFontSizes"></jqcloud>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+                <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
                 <div class="caption">
                     <h3>Images</h3>
+                </div>
+
+                <div class="slides-container" style="position: relative; top: 0px; left: 0px; width:420px;height: 160px;margin-left:auto;margin-right:auto;"
+                     ng-if="dataContainer.images.length > 0">
+                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 160px;">
+                        <div ng-repeat='def in dataContainer.images' enable-jssor jssor-options="sliderWithArrowOptions"
+                             jssor-trigger="{{$last}}">
+                            <img src="{{def}}" style="max-width:380px;max-height:160px;"/>
+                        </div>
+                    </div>
+                    <!-- Bullet Navigator -->
+                    <div data-u="navigator" class="jssorb01" style="bottom:16px;right:10px;">
+                        <div data-u="prototype" style="width:12px;height:12px;"></div>
+                    </div>
+                    <!-- Arrow Navigator -->
+                    <span u="arrowleft" class="jssora10l" style="width: 28px; height: 40px; top: 123px; left: 8px;"></span>
+                    <span u="arrowright" class="jssora10r" style="width: 28px; height: 40px; top: 123px; right: 8px"></span>
                 </div>
             </div>
         </div>
