@@ -6,6 +6,15 @@
 
 var angularRun = function ($rootScope) {
 
+  $rootScope.resetDataContainer = function () {
+    $rootScope.dataContainer = {
+      definitions: [],
+      synonyms: [],
+      words: [],
+      analytics: {},
+      term: null
+    };
+  };
 };
 
 angularRun.$inject = ['$rootScope'];

@@ -33,10 +33,10 @@
 
         <div class="slides-container"
              style="font-style: italic; position: relative; top: 0px; left: 0px; width:280px;height: 180px;margin-left:auto;margin-right:auto; /*border-width: 1px; border-style: solid;*/"
-             ng-if="dataContainer.definitions.length > 0">
+             ng-if="$root.dataContainer.definitions.length > 0">
           <div u="slides"
                style="cursor: move; position: absolute; overflow: hidden; left: 10px; top: 0px; width: 260px; height: 180px;">
-            <div ng-repeat='def in dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
+            <div ng-repeat='def in $root.dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
                  jssor-trigger="{{$last}}">
               <div ng-bind-html="def.definition"></div>
               <i>Count: {{def.count}}</i>
@@ -61,14 +61,14 @@
         <div class="caption" style="height:90%">
           <h3>Synonyms</h3>
 
-          <div ng-if="dataContainer.words.length > 0" style="height:100%">
+          <div ng-if="$root.dataContainer.words.length > 0" style="height:100%">
             <jqcloud
                 style="height:100%"
-                words="dataContainer.words"
+                words="$root.dataContainer.words"
                 auto-resize="true"
-                steps="dataContainer.wordSteps"
-                colors="{{dataContainer.wordColors}}"
-                font-size="dataContainer.wordFontSizes"></jqcloud>
+                steps="$root.dataContainer.wordSteps"
+                colors="{{$root.dataContainer.wordColors}}"
+                font-size="$root.dataContainer.wordFontSizes"></jqcloud>
           </div>
         </div>
       </div>

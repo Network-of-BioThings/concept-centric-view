@@ -34,15 +34,10 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     });
   }
 
-//------ Analytics data  ----------------------------------------------------------------------
+//------ Init data container ----------------------------------------------------------------------
 
-  $scope.dataContainer = {
-    definitions: [],
-    synonyms: [],
-    words: [],
-    analytics: {},
-    term: null
-  };
+  $rootScope.resetDataContainer();
+
 
 //------ Configure JSSOR slider for definitions  ----------------------------------------------------------------------
 
@@ -65,7 +60,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   };
 
   $scope.fillUpSlider = function (response) {
-    $scope.dataContainer.definitions = response.definitions;
+    $rootScope.dataContainer.definitions = response.definitions;
   }
 
   $scope.doTheImages = function (response) {
@@ -113,19 +108,19 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     }
 
     var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
-    $scope.dataContainer.wordColors = colors;
-    $scope.dataContainer.wordSteps = colors.length;
-    $scope.dataContainer.words = synonyms;
-    $scope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
+    $rootScope.dataContainer.wordColors = colors;
+    $rootScope.dataContainer.wordSteps = colors.length;
+    $rootScope.dataContainer.words = synonyms;
+    $rootScope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
   }
 
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
   $scope.doTheGraph = function (response) {
-    $scope.dataContainer.parents = response.parents;
-    $scope.dataContainer.children = response.children;
-    $scope.dataContainer.siblings = response.siblings;
-    $scope.dataContainer.term = response.term;
+    $rootScope.dataContainer.parents = response.parents;
+    $rootScope.dataContainer.children = response.children;
+    $rootScope.dataContainer.siblings = response.siblings;
+    $rootScope.dataContainer.term = response.term;
 
   }
 };

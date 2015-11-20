@@ -1,6 +1,6 @@
 'use strict';
 
-var ccvTree = function ($document, CONST) {
+var ccvTree = function ($document, $rootScope, $location, CONST) {
 
   var link;
   var node;
@@ -34,6 +34,9 @@ var ccvTree = function ($document, CONST) {
 
   function dragstart(d) {
     d3.select(this).classed("fixed", d.fixed = true);
+    //console.log(d.term);
+    $rootScope.resetDataContainer();
+    $location.path("dashboard/" + d.term);
   }
 
   function pushNode(n, nodeType, graph) {
@@ -76,7 +79,7 @@ var ccvTree = function ($document, CONST) {
     // -- OWN
 
     var ownNode = {
-      term: scope.dataContainer.term,
+      term: $rootScope.dataContainer.term,
       count: NaN
     };
 
@@ -89,7 +92,7 @@ var ccvTree = function ($document, CONST) {
     // -- PARENTS
 
     var parents = [];
-    var pl = scope.dataContainer.parents;
+    var pl = $rootScope.dataContainer.parents;
 
     var parentHSpace = width * CONST.graph.parentsSpanMultiplier;
     var parentHDist = parentHSpace / (pl.length + 1);
@@ -106,7 +109,7 @@ var ccvTree = function ($document, CONST) {
     // -- CHILDREN
 
     var children = [];
-    var cl = scope.dataContainer.children;
+    var cl = $rootScope.dataContainer.children;
 
     var childrenHSpace = width * CONST.graph.childrenSpanMultiplier;
     var childrenHDist = childrenHSpace / (cl.length + 1);
@@ -126,7 +129,7 @@ var ccvTree = function ($document, CONST) {
       }
     }
 
-    console.log(graph);
+    //console.log(graph);
 
     return graph;
   }
@@ -280,5 +283,5 @@ var ccvTree = function ($document, CONST) {
 
 };
 
-ccvTree.$inject = ['$document', 'CONST'];
+ccvTree.$inject = ['$document', '$rootScope', '$location', 'CONST'];
 angularApp.directive('ccvTree', ccvTree);
