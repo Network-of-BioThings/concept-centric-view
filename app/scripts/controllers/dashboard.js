@@ -11,6 +11,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       $scope.fillUpSlider();
       $scope.fillUpWordCloud();
       $scope.doTheGraph();
+      console.log("RESPONSE is:");
       console.log(response);
     });
 
@@ -20,6 +21,8 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     //  console.log('Wiki' + response);
     //});
   }
+
+//------ Analytics data  ----------------------------------------------------------------------
 
   $scope.dataContainer = {
     definitions: [],
@@ -48,12 +51,13 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       $Steps: 1                                   //[Optional] Steps to go for each navigation request, default value is 1
     },
     $BulletNavigatorOptions: {
-      $Class: $JssorBulletNavigator$
+      $Class: $JssorBulletNavigator$,
+      $SpacingX: 5,
+      $Rows: 2
     }
   };
 
   $scope.fillUpSlider = function () {
-    console.log("CREATE SLIDER");
     $scope.dataContainer.definitions = $scope.conceptInfo.definitions;
   }
 
@@ -81,12 +85,10 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 
   $scope.doTheGraph = function () {
-
     $scope.dataContainer.parents = $scope.conceptInfo.parents;
     $scope.dataContainer.children = $scope.conceptInfo.children;
     $scope.dataContainer.siblings = $scope.conceptInfo.siblings;
     $scope.dataContainer.term = $scope.conceptInfo.term;
-
   }
 
   // --------------------------------------------------------------------------------------------------------
