@@ -118,14 +118,14 @@ header {
   background-position: -316px -39px;
 }
 .link {
-  stroke: #000;
-  stroke-width: 1.5px;
+  stroke: #aaaaaa;
+  stroke-width: 1px;
 }
 .node {
   cursor: move;
   fill: #ccc;
-  stroke: #000;
-  stroke-width: 1.5px;
+  stroke: #555555;
+  stroke-width: 1px;
 }
 .node.fixed {
   fill: #f00;
@@ -139,6 +139,8 @@ h3 {
 }
 .node text {
   pointer-events: none;
+  fill: #550000;
+  stroke-width: 0px;
 }
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject

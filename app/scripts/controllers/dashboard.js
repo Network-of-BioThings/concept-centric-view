@@ -1,6 +1,6 @@
 'use strict';
 
-var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
+var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService, CONST) {
 
   var query = $routeParams["query"];
   $scope.q = query;
@@ -116,7 +116,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       synonyms.push(s);
     }
 
-    var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+    var colors = CONST.synonymWordCloud.colors;
     $rootScope.dataContainer.wordColors = colors;
     $rootScope.dataContainer.wordSteps = colors.length;
     $rootScope.dataContainer.words = synonyms;
@@ -130,9 +130,11 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     $rootScope.dataContainer.children = response.children;
     $rootScope.dataContainer.siblings = response.siblings;
     $rootScope.dataContainer.term = response.term;
+    console.log(" DO THE GRAPH");
+    console.log($rootScope.dataContainer);
 
   }
 };
 
-DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService"];
+DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "CONST"];
 angularApp.controller('DashboardController', DashboardController);

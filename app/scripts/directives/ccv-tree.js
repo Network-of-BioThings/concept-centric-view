@@ -65,6 +65,10 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     return l;
   }
 
+  function getTermSize(weight) {
+    return weight * CONST.graph.maxTermSize / maxWeight;
+  }
+
   function prepareGraphData(scope) {
 
     var ownY = height * CONST.graph.ownYMultiplier;
@@ -100,7 +104,7 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     for (var i in pl) {
       var np = pushNode(pl[i], "parent", graph);
       parents.push(np);
-      np.y = parentY;
+      np.y = parentY + CONST.graph.parentYOffsets[i % CONST.graph.parentYOffsets.length];
       np.x = (width - parentHSpace) / 2 + parentHDist * (Number(i) + 1);
       np.originalWeight = pl[i].count;
       pushLink(ownIdx, np.nodeIndex, graph);
@@ -117,7 +121,7 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     for (var i in cl) {
       var nc = pushNode(cl[i], "child", graph);
       children.push(nc);
-      nc.y = childrenY;
+      nc.y = childrenY + CONST.graph.childrenYOffsets[i % CONST.graph.childrenYOffsets.length];
       nc.x = (width - childrenHSpace) / 2 + childrenHDist * (Number(i) + 1);
       nc.originalWeight = cl[i].count;
       pushLink(ownIdx, nc.nodeIndex, graph);
@@ -129,6 +133,8 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
       }
     }
 
+    graph.nodes[0].originalWeight = CONST.graph.ownTermSize;
+
     //console.log(graph);
 
     return graph;
@@ -136,8 +142,10 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
 
   function angularlink(scope, element, attrs) {
 
-    width = CONST.graph.width;
-    height = CONST.graph.height;
+    var treeThumbnail = angular.element('#treeThumbnail');
+
+    width = (treeThumbnail.width() != 0) ? treeThumbnail.width() - 80 : CONST.graph.backupWidth;
+    height = (treeThumbnail.height() != 0) ? treeThumbnail.height() - 80 : CONST.graph.backupHeight;
 
     var palette = {
       "lightgray": "#819090",
@@ -198,14 +206,14 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
 
 
       //MOUSEOVER
-      .on("mouseover", function(d,i) {
-        if (i>0) {
+      .on("mouseover", function (d, i) {
+        if (i > 0) {
           //CIRCLE
           d3.select(this).selectAll("circle")
             .transition()
             .duration(250)
             .style("cursor", "none")
-            .attr("r", d.originalWeight * 20 / maxWeight + 10)
+            .attr("r", getTermSize(d.originalWeight) + CONST.graph.increaseTermSizeBy)
 
           //TEXT
           d3.select(this).select("text")
@@ -213,9 +221,9 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
             .style("cursor", "none")
             .duration(250)
             .style("cursor", "none")
-            .attr("font-size","2em")
-            .attr("x", 15 )
-            .attr("y", -20 )
+            .attr("font-size", "2em")
+            .attr("x", 15)
+            .attr("y", -20)
         } else {
           //CIRCLE
           d3.select(this).selectAll("circle")
@@ -228,28 +236,28 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
       })
 
       //MOUSEOUT
-      .on("mouseout", function(d,i) {
-        if (i>0) {
+      .on("mouseout", function (d, i) {
+        if (i > 0) {
           //CIRCLE
           d3.select(this).selectAll("circle")
             .transition()
             .duration(250)
-            .attr("r", d.originalWeight * 20 / maxWeight)
+            .attr("r", getTermSize(d.originalWeight))
 
           //TEXT
           d3.select(this).select("text")
             .transition()
             .duration(250)
-            .attr("font-size","1em")
-            .attr("x", 8 )
-            .attr("y", 4 )
+            .attr("font-size", "1em")
+            .attr("x", 8)
+            .attr("y", 4)
         }
       })
       .call(drag);
 
     node.append("svg:circle")
       .attr("r", function (d) {
-        return d.originalWeight * 20 / maxWeight;
+        return getTermSize(d.originalWeight);
       })
       .attr("fill", function (d, i) {
         return d.nodeType == 'parent' ? palette.paleryellow : palette.green;
@@ -266,13 +274,7 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
       .attr("font-size", function (d, i) {
         return "1em";
       })
-      .attr("text-anchor", function (d, i) {
-        if (i > 0) {
-          return "beginning";
-        } else {
-          return "end"
-        }
-      })
+      .attr("text-anchor", "middle")
 
   }
 

@@ -46,7 +46,7 @@
 
         <div class="slides-container"
              style="font-style: italic; position: relative; top: 0px; left: 0px; width:270px;height: 180px;margin-left:auto;margin-right:auto; /*border-width: 1px; border-style: solid;*/"
-             ng-if="dataContainer.definitions.length > 0">
+             ng-if="$root.dataContainer.definitions.length > 0">
           <div u="slides"
                style="cursor: move; position: absolute; overflow: hidden; left: 10px; top: 0px; width: 260px; height: 180px;">
             <div ng-repeat='def in $root.dataContainer.definitions' enable-jssor jssor-options="sliderWithArrowOptions"
@@ -107,14 +107,14 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <div style="height:600px" class="thumbnail">
+      <div style="height:600px" class="thumbnail" id="treeThumbnail">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
           <h4>Graph View</h4>
 
-          <div id="treeContainer" ccv-tree="true" ng-if="dataContainer.term != null"
-               style="border:2px dashed #dddddd;"></div>
+          <div id="treeContainer" ccv-tree="true" ng-if="$root.dataContainer.term != null"
+               style="border:1px dashed #dddddd;background-color:#fefefe"></div>
         </div>
       </div>
     </div>
