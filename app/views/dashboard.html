@@ -72,8 +72,7 @@
         <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
 
         <div class="caption" style="height:90%">
-          <h4>Synonyms</h4>
-
+          <h4>Also known as...</h4>
           <div ng-if="$root.dataContainer.words.length > 0" style="height:100%">
             <jqcloud
                 style="height:100%"
@@ -83,6 +82,7 @@
                 colors="{{$root.dataContainer.wordColors}}"
                 font-size="$root.dataContainer.wordFontSizes"></jqcloud>
           </div>
+
         </div>
       </div>
     </div>
@@ -126,7 +126,7 @@
 
         <div class="caption" style="height:90%">
           <h4>Ontologies</h4>
-          <div ng-if="$root.dataContainer.ontoWords.length > 0" style="height:100%">
+          <div ng-if="$root.dataContainer.ontoWords.length > 0" style="height:100%; width: 100%;">
             <jqcloud
                 style="height:100%"
                 words="$root.dataContainer.ontoWords"

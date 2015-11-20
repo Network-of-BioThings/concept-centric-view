@@ -132,7 +132,7 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     console.log("CREATE WORD CLOUD FOR ONTOLOGIES");
     var ontologies = [];
     for (var i in onts) {
-      var s = {"text": onts[i].acronym, "weight": onts[i].rank};
+      var s = {"text": onts[i].acronym, "weight": onts[i].rank, "link": onts[i].ui};
       ontologies.push(s);
     }
 
