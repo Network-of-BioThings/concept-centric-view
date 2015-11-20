@@ -121,7 +121,7 @@ var ccvTree = function ($document, $rootScope, $location, CONST) {
     for (var i in cl) {
       var nc = pushNode(cl[i], "child", graph);
       children.push(nc);
-      nc.y = childrenY + CONST.graph.childrenYOffsets[i % CONST.graph.childrenYOffsets.length];
+      nc.y = childrenY - CONST.graph.childrenYOffsets[i % CONST.graph.childrenYOffsets.length];
       nc.x = (width - childrenHSpace) / 2 + childrenHDist * (Number(i) + 1);
       nc.originalWeight = cl[i].count;
       pushLink(ownIdx, nc.nodeIndex, graph);

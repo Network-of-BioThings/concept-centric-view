@@ -11,8 +11,8 @@ angularApp.constant('CONST', {
     childrenYMultiplier: 0.8,
     parentsSpanMultiplier: 0.8,
     childrenSpanMultiplier: 0.9,
-    parentYOffsets: [0, -10, 20, -20, 10],
-    childrenYOffsets: [0, 10, -20, -10, 20],
+    parentYOffsets: [0, -20, -120, 40, -40, 20, 60, -60, 100, -100, 120],
+    childrenYOffsets: [0, -20, -120, 40, -40, 20, 60, -60, 100, -100, 120],
     ownTermSize: 10,
     maxTermSize: 20,
     increaseTermSizeBy: 10

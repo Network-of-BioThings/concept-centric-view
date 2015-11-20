@@ -137,10 +137,10 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
     }
 
     var colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
-    $rootScope.dataContainer.wordColors = colors;
-    $rootScope.dataContainer.wordSteps = colors.length;
+    $rootScope.dataContainer.ontoWordColors = colors;
+    $rootScope.dataContainer.ontoWordSteps = colors.length;
     $rootScope.dataContainer.ontoWords = ontologies;
-    $rootScope.dataContainer.wordFontSizes = {"from": 0.15, "to": 0.04};
+    $rootScope.dataContainer.ontoWordFontSizes = {"from": 0.15, "to": 0.04};
   }
   //------ Configure Graph in the middle ----------------------------------------------------------------------
 

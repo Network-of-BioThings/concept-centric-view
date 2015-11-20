@@ -107,7 +107,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <div style="height:600px" class="thumbnail" id="treeThumbnail">
+      <div style="height:800px" class="thumbnail" id="treeThumbnail">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
@@ -131,9 +131,9 @@
                 style="height:100%"
                 words="$root.dataContainer.ontoWords"
                 auto-resize="true"
-                steps="$root.dataContainer.wordSteps"
-                colors="{{$root.dataContainer.wordColors}}"
-                font-size="$root.dataContainer.wordFontSizes"></jqcloud>
+                steps="$root.dataContainer.ontoWordSteps"
+                colors="{{$root.dataContainer.ontoWordColors}}"
+                font-size="$root.dataContainer.ontoWordFontSizes"></jqcloud>
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
 
         <div class="caption">
-          <h4>URIs</h4>
+          <h4>Relevant URIs</h4>
           <!--<div ng-if="$root.dataContainer.words.length > 0" style="height:100%">-->
 
         </div>
