@@ -1,6 +1,6 @@
 'use strict';
 
-angularApp.service('ConceptService', function FormService($http) {
+angularApp.service('ConceptService', function ConceptService($http) {
   var hostname = "stagedata.bioontology.org";
   var apiService = 'http://' + hostname + '/ccv/?q=';
   var apikey = "e68f509c-cf8f-4bce-a805-217571e03647"; // CEDAR api key

@@ -1,17 +1,22 @@
 'use strict';
 
-var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService) {
+var DashboardController = function ($rootScope, $scope, $routeParams, $location, ConceptService, WikiService) {
 
   var query = $routeParams["query"];
 
   if (query) {
     // Using form service to load list of existing elements to embed into new form
-    ConceptService.concept("melanoma").then(function (response) {
+    ConceptService.concept(query).then(function (response) {
       $scope.conceptInfo = response;
       $scope.fillUpSlider();
       $scope.fillUpWordCloud();
       $scope.doTheGraph();
       console.log(response);
+    });
+
+    // Using form service to load list of existing elements to embed into new form
+    WikiService.searchImages(query).then(function (response) {
+      console.log('Wiki' + response);
     });
   }
 
@@ -120,8 +125,8 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       ]
     };
 
-    var width = 960,
-      height = 500;
+    var width = 900,
+      height = 400;
 
     var force = d3.layout.force()
       .size([width, height])
@@ -194,5 +199,5 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
 
 };
 
-DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService"];
+DashboardController.$inject = ["$rootScope", "$scope", "$routeParams", "$location", "ConceptService", "WikiService"];
 angularApp.controller('DashboardController', DashboardController);
