@@ -3,7 +3,7 @@
 angularApp.service('ConceptService', function ConceptService($http) {
   var hostname = "stagedata.bioontology.org";
   var apiService = 'http://' + hostname + '/ccv/';
-  var apikey = "e68f509c-cf8f-4bce-a805-217571e03647"; // CEDAR api key
+  var apikey = "a140dc02-7bd9-4562-ad16-18a7d2e518ab"; // CCV api key
 
   return {
     serviceId: "ConceptService",
