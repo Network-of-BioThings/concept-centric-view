@@ -2,7 +2,7 @@
 
 This is an AngularJS web application that provides a concept-centric view across all BioPortal ontologies.
 
-Created by: Misha Dorf, Attila L. Egyedia, Clement Jonquet and Marcos Martinez-Romero at the [2nd Network of BioThings Hackathon](https://github.com/Network-of-BioThings/nob-hq/wiki/2nd-Network-of-BioThings-Hackathon).
+Created by: Misha Dorf, Attila L. Egyedi, Clement Jonquet and Marcos Martinez-Romero at the [2nd Network of BioThings Hackathon](https://github.com/Network-of-BioThings/nob-hq/wiki/2nd-Network-of-BioThings-Hackathon).
 
 Website: [http://ccv.bioontology.org/](http://ccv.bioontology.org/)
 
