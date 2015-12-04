@@ -39,6 +39,8 @@ var DashboardController = function ($rootScope, $scope, $routeParams, $location,
       //console.log(response);
 
     });
+
+    $window.ga('send', 'pageview', { page: $location.url() });
   }
 
 //------ Init data container ----------------------------------------------------------------------
